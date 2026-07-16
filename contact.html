@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — SHOGUN CONSTRUCTION</title>
+<meta name="description" content="Contact Shogun Construction — Specialist Mining Construction & Engineering. +27 56 110 0070 · elko@shogunconstruction.co.za · 25 Riastuine Plot, Parys, Free State.">
+<style>
+:root{
+  --ink:#141a22; --panel:#232f3e; --line:#33414f;
+  --amber:#f5a623; --amber2:#ffbe45; --steel:#8fa3b8; --ok:#39c07f;
+  --shadow:0 18px 50px rgba(10,16,24,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--ink);color:#e8eef4;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:800;letter-spacing:.5px}
+.kicker{color:var(--amber);font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+section{padding:70px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+.topbar{background:#0d1218;font-size:.8rem;color:var(--steel);padding:7px 0}
+.topbar .wrap{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topbar a:hover{color:var(--amber)}
+.topbar .dot{color:var(--amber)}
+nav.main{position:sticky;top:0;z-index:60;background:rgba(20,26,34,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.25rem;letter-spacing:2px}
+.logo .mark{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--amber),#d98200);display:grid;place-items:center;color:#141a22;font-size:1.3rem;font-weight:900}
+.logo small{display:block;font-size:.58rem;letter-spacing:1.6px;color:var(--steel);font-weight:600}
+.navlinks{display:flex;gap:6px;align-items:center}
+.navlinks a{padding:9px 15px;border-radius:8px;font-size:.9rem;font-weight:600;color:#cfd9e3;transition:.2s}
+.navlinks a:hover,.navlinks a.active{background:rgba(245,166,35,.14);color:var(--amber2)}
+.navlinks a.cta{background:var(--amber);color:#141a22;margin-left:8px}
+.burger{display:none;background:none;border:1px solid var(--line);color:#e8eef4;border-radius:8px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+@media(max-width:900px){
+  .burger{display:block}
+  .navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:#141a22;flex-direction:column;padding:14px;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}
+}
+
+.phero{padding:70px 0 54px;background:
+  linear-gradient(115deg,rgba(13,18,24,.95) 30%,rgba(13,18,24,.6)),
+  repeating-linear-gradient(45deg,#1a222c 0 26px,#18202a 26px 52px);border-bottom:1px solid var(--line)}
+.phero h1{font-size:clamp(2rem,4.4vw,3rem);text-transform:uppercase}
+.phero h1 span{color:var(--amber)}
+.lead{color:var(--steel);max-width:720px;margin-top:12px}
+
+.cgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:start}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px;box-shadow:var(--shadow)}
+.card h2{font-size:1.2rem;text-transform:uppercase;letter-spacing:1px;color:var(--amber);margin-bottom:20px}
+.crow{display:flex;gap:14px;align-items:flex-start;padding:13px 10px;border-radius:12px;transition:.2s}
+.crow:hover{background:rgba(245,166,35,.08)}
+.crow .i{width:42px;height:42px;flex:none;border-radius:10px;background:rgba(245,166,35,.15);display:grid;place-items:center;font-size:1.15rem}
+.crow .t b{display:block;font-size:.72rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--steel);font-weight:700}
+.crow .t a,.crow .t span{font-size:1rem;font-weight:600;color:#e8eef4}
+.crow .t a:hover{color:var(--amber2)}
+.crow .t small{display:block;color:var(--steel);font-size:.8rem}
+.divide{height:1px;background:var(--line);margin:16px 0}
+.copybtn{margin-left:8px;background:none;border:1px solid var(--line);color:var(--steel);border-radius:6px;font-size:.68rem;padding:3px 8px;cursor:pointer;transition:.2s;vertical-align:middle}
+.copybtn:hover{border-color:var(--amber);color:var(--amber)}
+
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){form .row{grid-template-columns:1fr}}
+label{display:block;font-size:.74rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--steel);font-weight:700;margin:16px 0 6px}
+input,textarea,select{width:100%;background:#161d26;border:1px solid var(--line);border-radius:10px;color:#e8eef4;padding:13px 15px;font-size:.95rem;font-family:inherit;transition:.2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(245,166,35,.15)}
+textarea{min-height:130px;resize:vertical}
+.btn{display:inline-block;margin-top:22px;padding:15px 34px;border-radius:10px;background:var(--amber);color:#141a22;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:.9rem;transition:.22s;border:none;cursor:pointer}
+.btn:hover{background:var(--amber2);transform:translateY(-2px)}
+.note{font-size:.8rem;color:var(--steel);margin-top:12px}
+.sent{display:none;margin-top:16px;background:rgba(57,192,127,.12);border:1px solid var(--ok);color:#9fe4c3;border-radius:10px;padding:14px 18px;font-size:.9rem}
+
+.mapwrap{margin-top:34px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.mapwrap iframe{width:100%;height:440px;border:0;display:block;filter:saturate(.9)}
+
+.hours{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-top:34px}
+.hcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;transition:.25s}
+.hcard:hover{transform:translateY(-4px);border-color:var(--amber)}
+.hcard .big{font-size:1.6rem;font-weight:900;color:var(--amber)}
+.hcard .sm{color:var(--steel);font-size:.8rem;letter-spacing:1.4px;text-transform:uppercase}
+
+footer{background:#0d1218;border-top:1px solid var(--line);padding:44px 0 24px;text-align:center;color:var(--steel);font-size:.85rem}
+footer a{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot">●</span> 24-HOUR AVAILABILITY</span>
+    <a href="tel:+27561100070">☎ +27 56 110 0070</a>
+    <a href="tel:+27825277602">📱 +27 82 527 7602</a>
+    <a href="mailto:elko@shogunconstruction.co.za">✉ elko@shogunconstruction.co.za</a>
+  </div>
+</div>
+
+<nav class="main">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="mark">S</span>
+      <span>SHOGUN<small>SPECIALIST MINING CONSTRUCTION &amp; ENGINEERING</small></span>
+    </a>
+    <button class="burger" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="navlinks" id="nl">
+      <a href="index.html">Home</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#safety">Safety</a>
+      <a href="services.html">Services &amp; Products</a>
+      <a href="contact.html" class="cta active">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <div class="kicker">We answer 24 hours a day, 7 days a week</div>
+    <h1>Contact <span>Us</span></h1>
+    <p class="lead">Whether it's a planned shutdown, an emergency breakdown, or a full plant installation —
+       reach the right person at Shogun directly. Call, email, or send a message below.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="cgrid">
+      <div class="card reveal">
+        <h2>Contact Details</h2>
+        <div class="crow"><div class="i">☎</div><div class="t"><b>Office</b>
+          <a href="tel:+27561100070">+27 56 110 0070</a><small>Main line — Parys, Free State</small></div></div>
+        <div class="crow"><div class="i">📱</div><div class="t"><b>Mobile / After Hours</b>
+          <a href="tel:+27825277602">+27 82 527 7602</a><small>24-hour availability for breakdowns</small></div></div>
+        <div class="divide"></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>General &amp; Projects</b>
+          <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a><button class="copybtn" data-c="elko@shogunconstruction.co.za">copy</button></div></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>Accounts</b>
+          <a href="mailto:accounts@shogunconstruction.co.za">accounts@shogunconstruction.co.za</a><button class="copybtn" data-c="accounts@shogunconstruction.co.za">copy</button></div></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>Jonathan</b>
+          <a href="mailto:jonathan@shogunconstruction.co.za">jonathan@shogunconstruction.co.za</a><button class="copybtn" data-c="jonathan@shogunconstruction.co.za">copy</button></div></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>Peter</b>
+          <a href="mailto:peter@shogunconstruction.co.za">peter@shogunconstruction.co.za</a><button class="copybtn" data-c="peter@shogunconstruction.co.za">copy</button></div></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>Celeste</b>
+          <a href="mailto:celeste@shogunconstruction.co.za">celeste@shogunconstruction.co.za</a><button class="copybtn" data-c="celeste@shogunconstruction.co.za">copy</button></div></div>
+        <div class="crow"><div class="i">✉</div><div class="t"><b>Monica</b>
+          <a href="mailto:monica@shogunconstruction.co.za">monica@shogunconstruction.co.za</a><button class="copybtn" data-c="monica@shogunconstruction.co.za">copy</button></div></div>
+        <div class="divide"></div>
+        <div class="crow"><div class="i">📍</div><div class="t"><b>Head Office</b>
+          <a href="https://www.google.co.za/maps/place/Shogun+Construction/@-26.8815174,27.4354201,17z" target="_blank" rel="noopener">25 Riastuine Plot, Parys, Free State</a>
+          <small>South Africa — open in Google Maps</small></div></div>
+      </div>
+
+      <div class="card reveal">
+        <h2>Send Us a Message</h2>
+        <form id="cform">
+          <div class="row">
+            <div><label for="fn">Your Name*</label><input id="fn" required placeholder="John Smith"></div>
+            <div><label for="fe">Your Email*</label><input id="fe" type="email" required placeholder="you@company.co.za"></div>
+          </div>
+          <div class="row">
+            <div><label for="fp">Number*</label><input id="fp" required placeholder="+27 ..."></div>
+            <div><label for="fs">Service of Interest</label>
+              <select id="fs">
+                <option>General enquiry</option><option>Mills / Grinding</option><option>Crushers</option>
+                <option>Winders / Hoists</option><option>Cement Plants</option><option>Concentrator Plant Equipment</option>
+                <option>Emergency breakdown</option>
+              </select></div>
+          </div>
+          <label for="fm">Your Message*</label>
+          <textarea id="fm" required placeholder="Tell us about your project, shutdown dates, or breakdown..."></textarea>
+          <button class="btn" type="submit">Send Message ✉</button>
+          <div class="sent" id="sent">✔ Opening your email client with the message pre-filled — thank you! We'll get back to you shortly.</div>
+          <p class="note">Submitting opens an email addressed to elko@shogunconstruction.co.za with your message. Prefer to talk? Call us on <a href="tel:+27561100070" style="color:var(--amber)">+27 56 110 0070</a>.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="mapwrap reveal">
+      <iframe title="Shogun Construction — 25 Riastuine Plot, Parys" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.692239188363!2d27.435420128636164!3d-26.881517429217535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e943de44fe59ffd%3A0x5367a5aedcce0661!2sShogun%20Construction!5e0!3m2!1sen!2sza!4v1675170820925!5m2!1sen!2sza"></iframe>
+    </div>
+
+    <div class="hours reveal">
+      <div class="hcard"><div class="big">24/7</div><div class="sm">Breakdown Response</div></div>
+      <div class="hcard"><div class="big">1994</div><div class="sm">Serving Mines Since</div></div>
+      <div class="hcard"><div class="big">150+</div><div class="sm">Specialists On Call</div></div>
+      <div class="hcard"><div class="big">RSA</div><div class="sm">&amp; Cross-Border Projects</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © SHOGUN CONSTRUCTION. All Rights Reserved. ·
+    <a href="index.html">Home</a> · <a href="services.html">Services &amp; Products</a> ·
+    <a href="tel:+27561100070">+27 56 110 0070</a>
+  </div>
+</footer>
+
+<script>
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// copy buttons
+document.querySelectorAll('.copybtn').forEach(b=>b.addEventListener('click',()=>{
+  navigator.clipboard.writeText(b.dataset.c).then(()=>{b.textContent='copied!';setTimeout(()=>b.textContent='copy',1400);});
+}));
+// form -> mailto
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=document.getElementById('fn').value, em=document.getElementById('fe').value,
+        p=document.getElementById('fp').value, s=document.getElementById('fs').value,
+        m=document.getElementById('fm').value;
+  const body=encodeURIComponent(`Name: ${n}\nEmail: ${em}\nNumber: ${p}\nService: ${s}\n\n${m}`);
+  const subj=encodeURIComponent(`Website enquiry — ${s}`);
+  document.getElementById('sent').style.display='block';
+  location.href=`mailto:elko@shogunconstruction.co.za?subject=${subj}&body=${body}`;
+});
+</script>
+</body>
+</html>

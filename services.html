@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services &amp; Products — SHOGUN CONSTRUCTION</title>
+<meta name="description" content="Full breakdown of Shogun Construction services: Mills/Grinding, Crushers, Winders/Hoists, Cement Plants and Concentrator Plant Equipment — with interactive 3D models.">
+<style>
+:root{
+  --ink:#141a22; --panel:#232f3e; --line:#33414f;
+  --amber:#f5a623; --amber2:#ffbe45; --steel:#8fa3b8; --ok:#39c07f;
+  --shadow:0 18px 50px rgba(10,16,24,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--ink);color:#e8eef4;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:800;letter-spacing:.5px}
+.kicker{color:var(--amber);font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-size:clamp(1.6rem,3.2vw,2.3rem);text-transform:uppercase}
+.lead{color:var(--steel);max-width:780px;margin-top:12px}
+section{padding:80px 0;position:relative}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* top bar + nav (shared) */
+.topbar{background:#0d1218;font-size:.8rem;color:var(--steel);padding:7px 0}
+.topbar .wrap{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topbar a:hover{color:var(--amber)}
+.topbar .dot{color:var(--amber)}
+nav.main{position:sticky;top:0;z-index:60;background:rgba(20,26,34,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.25rem;letter-spacing:2px}
+.logo .mark{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--amber),#d98200);display:grid;place-items:center;color:#141a22;font-size:1.3rem;font-weight:900}
+.logo small{display:block;font-size:.58rem;letter-spacing:1.6px;color:var(--steel);font-weight:600}
+.navlinks{display:flex;gap:6px;align-items:center}
+.navlinks a{padding:9px 15px;border-radius:8px;font-size:.9rem;font-weight:600;color:#cfd9e3;transition:.2s}
+.navlinks a:hover,.navlinks a.active{background:rgba(245,166,35,.14);color:var(--amber2)}
+.navlinks a.cta{background:var(--amber);color:#141a22;margin-left:8px}
+.navlinks a.cta:hover{background:var(--amber2)}
+.burger{display:none;background:none;border:1px solid var(--line);color:#e8eef4;border-radius:8px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+@media(max-width:900px){
+  .burger{display:block}
+  .navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:#141a22;flex-direction:column;padding:14px;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}
+}
+
+/* page hero */
+.phero{padding:76px 0 60px;background:
+  linear-gradient(115deg,rgba(13,18,24,.95) 30%,rgba(13,18,24,.6)),
+  repeating-linear-gradient(45deg,#1a222c 0 26px,#18202a 26px 52px);border-bottom:1px solid var(--line)}
+.phero h1{font-size:clamp(2rem,4.4vw,3rem);text-transform:uppercase}
+.phero h1 span{color:var(--amber)}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.jump a{background:var(--panel);border:1px solid var(--line);padding:10px 18px;border-radius:99px;font-size:.83rem;font-weight:700;letter-spacing:.5px;transition:.2s}
+.jump a:hover{background:var(--amber);color:#141a22;border-color:var(--amber)}
+
+/* service blocks */
+.svc-block{border-bottom:1px solid var(--line)}
+.svc-block:nth-child(even){background:#181f29}
+.duo{display:grid;grid-template-columns:1.1fr 1fr;gap:38px;margin-top:40px;align-items:start}
+@media(max-width:940px){.duo{grid-template-columns:1fr}}
+.viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #2a3644 0%, #10161d 75%);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.viewer canvas{display:block;width:100%;height:430px;cursor:grab;touch-action:none}
+.viewer canvas:active{cursor:grabbing}
+.viewer .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.viewer .hud .tag3d{background:rgba(245,166,35,.92);color:#141a22;font-weight:900;font-size:.68rem;letter-spacing:2px;padding:5px 12px;border-radius:99px}
+.viewer .hud .hint{color:#b9c8d6;font-size:.72rem;background:rgba(13,18,24,.65);padding:5px 12px;border-radius:99px}
+.viewer .ctrls{position:absolute;bottom:12px;left:14px;display:flex;gap:8px}
+.viewer .ctrls button{background:rgba(13,18,24,.75);border:1px solid var(--line);color:#dfe8f0;font-size:.75rem;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;transition:.2s;letter-spacing:.5px}
+.viewer .ctrls button:hover,.viewer .ctrls button.on{background:var(--amber);color:#141a22;border-color:var(--amber)}
+.svc-info h3{font-size:1.05rem;color:var(--amber);margin:22px 0 8px;text-transform:uppercase;letter-spacing:1px}
+.svc-info p.desc{color:#c4d0dc}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 13px;font-size:.8rem;color:#cfd9e3;transition:.2s;cursor:default}
+.chip:hover{border-color:var(--amber);color:var(--amber2);transform:translateY(-2px)}
+
+/* walkthrough blocks */
+.walk{margin-top:40px}
+.walkscreen{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#10161d}
+.walkscreen canvas{display:block;width:100%;height:500px;touch-action:none}
+.walk-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,18,24,.55);backdrop-filter:blur(2px);cursor:pointer;transition:.3s;z-index:5}
+.walk-overlay:hover{background:rgba(13,18,24,.4)}
+.walk-overlay .play{width:92px;height:92px;border-radius:50%;background:var(--amber);display:grid;place-items:center;font-size:2rem;color:#141a22;box-shadow:0 0 0 12px rgba(245,166,35,.25);transition:.25s}
+.walk-overlay:hover .play{transform:scale(1.08)}
+.walk-overlay .lbl{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-weight:800;letter-spacing:2px;font-size:.85rem;text-transform:uppercase;color:#fff}
+.walkbar{position:absolute;left:14px;right:14px;bottom:12px;display:flex;gap:10px;align-items:center;z-index:4}
+.walkbar button{background:rgba(13,18,24,.78);border:1px solid var(--line);color:#dfe8f0;font-size:.75rem;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;letter-spacing:.5px}
+.walkbar button:hover{background:var(--amber);color:#141a22;border-color:var(--amber)}
+.walkbar .prog{flex:1;height:7px;background:rgba(13,18,24,.8);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.walkbar .prog .p{height:100%;width:0;background:var(--amber)}
+.walk-txt{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px}
+.walk-txt h3{color:var(--amber);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.walk-txt p{color:#c4d0dc;margin-bottom:14px}
+.walk-txt p:last-of-type{margin-bottom:0}
+
+.cta-strip{background:linear-gradient(135deg,#2a3240,#1b2430);border-top:1px solid var(--line);text-align:center}
+.cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);text-transform:uppercase}
+.btn{display:inline-block;margin-top:24px;padding:15px 34px;border-radius:10px;background:var(--amber);color:#141a22;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:.9rem;transition:.22s}
+.btn:hover{background:var(--amber2);transform:translateY(-2px)}
+
+footer{background:#0d1218;border-top:1px solid var(--line);padding:44px 0 24px;text-align:center;color:var(--steel);font-size:.85rem}
+footer a{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot">●</span> 24-HOUR AVAILABILITY</span>
+    <a href="tel:+27561100070">☎ +27 56 110 0070</a>
+    <a href="tel:+27825277602">📱 +27 82 527 7602</a>
+    <a href="mailto:elko@shogunconstruction.co.za">✉ elko@shogunconstruction.co.za</a>
+  </div>
+</div>
+
+<nav class="main">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="mark">S</span>
+      <span>SHOGUN<small>SPECIALIST MINING CONSTRUCTION &amp; ENGINEERING</small></span>
+    </a>
+    <button class="burger" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="navlinks" id="nl">
+      <a href="index.html">Home</a>
+      <a href="index.html#history">History</a>
+      <a href="index.html#safety">Safety</a>
+      <a href="services.html" class="active">Services &amp; Products</a>
+      <a href="contact.html" class="cta">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance — Full Circle Solutions</div>
+    <h1>Services &amp; <span>Products</span></h1>
+    <p class="lead">Explore our specialist capability in full detail — and take our machines for a spin.
+       Every 3D model below is fully interactive: <strong style="color:#fff">drag to rotate, scroll to zoom</strong>,
+       and click the plant screens to start a guided walk-through.</p>
+    <div class="jump">
+      <a href="#mills">⚙️ Mills / Grinding</a>
+      <a href="#crushers">🪨 Crushers</a>
+      <a href="#winders">🏗️ Winders / Hoists</a>
+      <a href="#cement">🏭 Cement Plants</a>
+      <a href="#concentrator">🧪 Concentrator Plants</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MILLS ============ -->
+<section class="svc-block" id="mills">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance</div>
+    <h2 class="sec-title">Mills / Grinding</h2>
+    <div class="duo reveal">
+      <div class="viewer" data-model="mill">
+        <canvas></canvas>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
+        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+      </div>
+      <div class="svc-info">
+        <h3>What we work on</h3>
+        <p class="desc">Shogun works on all types of mills: wrap-around, single &amp; dual drive mills,
+           shell supported, trunnion supported, SAG, FAG, Ball, Vertimills, rod mills, scrubbers and more.
+           The model shows a trunnion-supported grinding mill with girth gear and pinion drive — spin it around
+           and watch the shell turn just like on the plant.</p>
+        <h3>Services provided</h3>
+        <div class="chips">
+          <span class="chip">Mill installations</span><span class="chip">Mill refurbishment</span>
+          <span class="chip">Re-lines — machine &amp; by hand</span><span class="chip">Mill inspections</span>
+          <span class="chip">Condition monitoring</span><span class="chip">Pinion assemblies / change-outs</span>
+          <span class="chip">Girth gear turn-around / changes</span><span class="chip">Roller / white metal / bronze bearings</span>
+          <span class="chip">Slipper pads / sphericals</span><span class="chip">Head / end change-outs</span>
+          <span class="chip">On-site machining</span><span class="chip">Drive train alignment</span>
+          <span class="chip">Weld repairs</span><span class="chip">Bolt elongation</span><span class="chip">Load cells</span>
+          <span class="chip">Gearbox / motor change</span><span class="chip">Coupling inspections &amp; changes</span>
+          <span class="chip">Liner optimization / grinding efficiency</span><span class="chip">Vibration analysis / motion amplification</span>
+          <span class="chip">Mill hydraulics &amp; seals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRUSHERS ============ -->
+<section class="svc-block" id="crushers">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance</div>
+    <h2 class="sec-title">Crushers</h2>
+    <div class="duo reveal">
+      <div class="viewer" data-model="crusher">
+        <canvas></canvas>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
+        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+      </div>
+      <div class="svc-info">
+        <h3>What we work on</h3>
+        <p class="desc">Shogun works on all types of crushers: primary gyratory crushers &amp; jaw crushers,
+           secondary &amp; tertiary cone crushers, pebble crushers and gyros. The model shows a primary gyratory
+           crusher — watch the mantle gyrate inside the concaves, exactly the motion our crews maintain and align.</p>
+        <h3>Services provided</h3>
+        <div class="chips">
+          <span class="chip">Crusher installations</span><span class="chip">Crusher refurbishment</span>
+          <span class="chip">Concave liner changes</span><span class="chip">Mantle liner changes</span>
+          <span class="chip">Qualified ultra-thermic lancing</span><span class="chip">Eccentric changes</span>
+          <span class="chip">Wear-part change (bushing)</span><span class="chip">Bevel gear / countershaft change</span>
+          <span class="chip">Bottom section replacements</span><span class="chip">Countershaft re-builds</span>
+          <span class="chip">Drive train alignment</span><span class="chip">Weld repairs</span>
+          <span class="chip">Bolt elongation</span><span class="chip">Mantle assemblies</span>
+          <span class="chip">Hydraulic fault-finding</span><span class="chip">Clamping &amp; tramping circuits</span>
+          <span class="chip">Spider bush &amp; mantle sleeves</span><span class="chip">Specialist bolting</span>
+          <span class="chip">Dump pocket safety platforms</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WINDERS ============ -->
+<section class="svc-block" id="winders">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance</div>
+    <h2 class="sec-title">Winders / Hoists</h2>
+    <div class="duo reveal">
+      <div class="viewer" data-model="winder">
+        <canvas></canvas>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
+        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+      </div>
+      <div class="svc-info">
+        <h3>What we work on</h3>
+        <p class="desc">Where it all began in 1994. Shogun works on all types of winders: single drum, double drum,
+           BMR winders, Koepe winders, winches, drum &amp; check winders on headgears — surface as well as underground.
+           The model shows a drum winder with headframe sheave and conveyance travelling the shaft.</p>
+        <h3>Services provided</h3>
+        <div class="chips">
+          <span class="chip">Winder installations</span><span class="chip">Winder refurbishment</span>
+          <span class="chip">Building of electrical panels</span><span class="chip">Winder inspections</span>
+          <span class="chip">Condition monitoring</span><span class="chip">Bearing changes</span>
+          <span class="chip">Brake path run-out linishing</span><span class="chip">MG sets</span>
+          <span class="chip">Drumbush changes</span><span class="chip">Pins &amp; bush change</span>
+          <span class="chip">On-site machining</span><span class="chip">Coiling sleeve weld repairs</span>
+          <span class="chip">Wiring of electrical panels</span><span class="chip">Manufacture hydraulic cylinders</span>
+          <span class="chip">Refurbish hydraulic units</span><span class="chip">Repair of hydraulic valves</span>
+          <span class="chip">Filtration systems</span><span class="chip">Refurbish accumulators</span>
+          <span class="chip">Line boring of motor couplings</span><span class="chip">Rotor &amp; stator changes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CEMENT PLANTS ============ -->
+<section class="svc-block" id="cement">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance</div>
+    <h2 class="sec-title">Cement Plants</h2>
+    <p class="lead">Click the screen below to take a guided 3D walk-through of a cement plant — from the preheater
+       tower, along the rotary kiln, to the clinker cooler and silos.</p>
+    <div class="walk reveal">
+      <div class="walkscreen" data-walk="cement">
+        <canvas></canvas>
+        <div class="walk-overlay"><div class="play">▶</div><div class="lbl">Start Cement Plant Walk-Through</div></div>
+        <div class="walkbar" style="display:none">
+          <button data-act="pause">⏸ Pause</button>
+          <button data-act="restart">↺ Restart</button>
+          <button data-act="free">🖱 Free look</button>
+          <div class="prog"><div class="p"></div></div>
+        </div>
+      </div>
+      <div class="walk-txt">
+        <h3>What Shogun does on cement plants</h3>
+        <p>Cement plants run hot, heavy and continuously — and their rotating equipment is exactly the territory
+           where Shogun's specialist crews are at home. Our teams handle the precision work that keeps a kiln line
+           turning: <strong>kiln alignment</strong> to bring the rotary kiln back onto its true axis, and complete
+           <strong>kiln shell section replacements</strong> when heat and wear have taken their toll — including
+           <strong>submerged arc welding</strong> for full-penetration shell joints.</p>
+        <p>Beyond the kiln itself, Shogun services <strong>heat exchangers</strong>, replaces
+           <strong>separator rotors</strong> in the finish-grinding circuit, installs and repairs
+           <strong>air ducting</strong>, and performs <strong>line boring on site</strong> so large components are
+           machined in place rather than shipped away. We also work on <strong>converters &amp; tipplers</strong> and
+           provide experienced <strong>plant supervision</strong> for shutdowns, so every discipline on the job pulls
+           in the same direction and the plant comes back online on schedule.</p>
+        <p>It's the same promise as everywhere else we work: do it the right way, the first time — with 24-hour
+           availability when a kiln can't wait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONCENTRATOR ============ -->
+<section class="svc-block" id="concentrator">
+  <div class="wrap">
+    <div class="kicker">Installation &amp; Maintenance</div>
+    <h2 class="sec-title">Concentrator Plant Equipment</h2>
+    <p class="lead">Click the screen below to walk a concentrator plant in 3D — past the SAG mill, along the flotation
+       banks, around the thickener and under the overland conveyor.</p>
+    <div class="walk reveal">
+      <div class="walkscreen" data-walk="concentrator">
+        <canvas></canvas>
+        <div class="walk-overlay"><div class="play">▶</div><div class="lbl">Start Concentrator Plant Walk-Through</div></div>
+        <div class="walkbar" style="display:none">
+          <button data-act="pause">⏸ Pause</button>
+          <button data-act="restart">↺ Restart</button>
+          <button data-act="free">🖱 Free look</button>
+          <div class="prog"><div class="p"></div></div>
+        </div>
+      </div>
+      <div class="walk-txt">
+        <h3>What Shogun does with concentrator plant equipment</h3>
+        <p>Shogun's know-how extends well past single machines — through good relationships with customers and OEM
+           suppliers, the company is known for the installation of <strong>entire concentrator plants</strong>.
+           Although mills, crushers and winders are our core specialities, our teams carry a wide range of knowledge
+           on the equipment that surrounds them: <strong>flotation cells</strong>, <strong>thickeners</strong>,
+           <strong>pumps</strong>, <strong>compressors</strong>, <strong>rotary dryers</strong>,
+           <strong>gearboxes</strong> and <strong>fans</strong>.</p>
+        <p>Day to day that means <strong>conveyor</strong> installation and maintenance, <strong>cyclone
+           maintenance</strong>, <strong>girth gear run-out correction</strong>, <strong>lubrication units</strong>,
+           <strong>stackers &amp; reclaimers</strong>, <strong>heavy-lift hydraulic equipment</strong>,
+           <strong>medium engineering</strong> fabrication and <strong>NDT inspections</strong> — the full circle of
+           mechanical services a concentrator needs from commissioning through every shutdown after.</p>
+        <p>Our site teams — engineers, supervisors, riggers, fitters, boilermakers and alignment technicians —
+           mobilise with the full Shogun fleet, so a project is executed safely, successfully and on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <div class="kicker">For all your mining construction &amp; engineering needs</div>
+    <h2>Ready to plan your next shutdown or installation?</h2>
+    <a class="btn" href="contact.html">Contact Us — 24 Hours a Day</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © SHOGUN CONSTRUCTION. All Rights Reserved. ·
+    <a href="tel:+27561100070">+27 56 110 0070</a> ·
+    <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a> ·
+    25 Riastuine Plot, Parys, Free State
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ========================================================================
+   SHOGUN 3D — procedural models, orbit viewers & plant walk-throughs
+   ======================================================================== */
+const T = THREE;
+
+/* ---------- materials ---------- */
+function mat(color, rough, metal){ return new T.MeshStandardMaterial({color, roughness:rough??.55, metalness:metal??.55}); }
+const M = {
+  steel : ()=>mat(0x9aa7b4,.45,.75),
+  dark  : ()=>mat(0x3a4552,.6,.6),
+  amber : ()=>mat(0xf5a623,.4,.5),
+  shell : ()=>mat(0x6b7c8d,.5,.7),
+  rust  : ()=>mat(0x8a6a4a,.7,.4),
+  concrete:()=>mat(0x8d9299,.9,.05),
+  ground: ()=>mat(0x2c3641,.95,.05),
+  glass : ()=>new T.MeshStandardMaterial({color:0xbfd8e8,roughness:.15,metalness:.3,transparent:true,opacity:.55}),
+  froth : ()=>mat(0xd8dee4,.9,.05),
+  slurry: ()=>mat(0x5b6f80,.8,.1),
+  red   : ()=>mat(0xb8452e,.6,.4),
+  green : ()=>mat(0x3f7a5a,.7,.3),
+};
+
+/* ---------- scene bootstrap ---------- */
+function makeScene(){
+  const scene = new T.Scene();
+  scene.fog = new T.Fog(0x10161d, 60, 220);
+  const hemi = new T.HemisphereLight(0xcfe4ff, 0x2b241a, .85); scene.add(hemi);
+  const sun = new T.DirectionalLight(0xfff1d6, 1.1); sun.position.set(30,50,20); scene.add(sun);
+  const fill = new T.DirectionalLight(0x88aaff, .32); fill.position.set(-25,20,-30); scene.add(fill);
+  return scene;
+}
+function makeRenderer(canvas){
+  const r = new T.WebGLRenderer({canvas, antialias:true, alpha:true});
+  r.setPixelRatio(Math.min(devicePixelRatio,2));
+  return r;
+}
+
+/* ---------- generic orbit viewer ---------- */
+function orbitViewer(container, buildFn, opts){
+  const canvas = container.querySelector('canvas');
+  const scene = makeScene();
+  const built = buildFn(scene);                 // returns {update(t,dt)}
+  const cam = new T.PerspectiveCamera(45, 2, .1, 500);
+  const o = Object.assign({dist:30, minD:10, maxD:80, phi:1.15, theta:.6, targetY:5}, opts||{});
+  let theta=o.theta, phi=o.phi, dist=o.dist, auto=true;
+  const target = new T.Vector3(0,o.targetY,0);
+  function place(){
+    cam.position.set(
+      target.x + dist*Math.sin(phi)*Math.sin(theta),
+      target.y + dist*Math.cos(phi),
+      target.z + dist*Math.sin(phi)*Math.cos(theta));
+    cam.lookAt(target);
+  }
+  const renderer = makeRenderer(canvas);
+  function resize(){
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(canvas); resize();
+
+  /* pointer controls */
+  let drag=false,px=0,py=0;
+  canvas.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);auto=false;syncAutoBtn();});
+  canvas.addEventListener('pointermove',e=>{if(!drag)return;
+    theta -= (e.clientX-px)*.008; phi -= (e.clientY-py)*.006;
+    phi=Math.max(.25,Math.min(1.45,phi)); px=e.clientX;py=e.clientY;});
+  canvas.addEventListener('pointerup',()=>drag=false);
+  canvas.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(o.minD,Math.min(o.maxD,dist+e.deltaY*.03));},{passive:false});
+
+  /* buttons */
+  const autoBtn = container.querySelector('[data-act="auto"]');
+  function syncAutoBtn(){ if(autoBtn) autoBtn.classList.toggle('on',auto); }
+  if(autoBtn) autoBtn.addEventListener('click',()=>{auto=!auto;syncAutoBtn();});
+  const resetBtn = container.querySelector('[data-act="reset"]');
+  if(resetBtn) resetBtn.addEventListener('click',()=>{theta=o.theta;phi=o.phi;dist=o.dist;auto=true;syncAutoBtn();});
+
+  let last=performance.now();
+  (function loop(now){
+    requestAnimationFrame(loop);
+    const dt=Math.min((now-last)/1000,.05); last=now;
+    if(auto) theta += dt*.25;
+    if(built && built.update) built.update(now/1000,dt);
+    place(); renderer.render(scene,cam);
+  })(last);
+}
+
+/* ---------- shared part helpers ---------- */
+function cyl(rt,rb,h,seg,material){ return new T.Mesh(new T.CylinderGeometry(rt,rb,h,seg||28), material); }
+function box(w,h,d,material){ return new T.Mesh(new T.BoxGeometry(w,h,d), material); }
+function torus(r,t,material,seg){ return new T.Mesh(new T.TorusGeometry(r,t,14,seg||44), material); }
+function group(...meshes){ const g=new T.Group(); meshes.forEach(m=>g.add(m)); return g; }
+function ring(r, t, n, mkFn){ const g=new T.Group(); for(let i=0;i<n;i++){const m=mkFn(); const a=i/n*Math.PI*2; m.position.set(Math.cos(a)*r,0,Math.sin(a)*r); m.lookAt(0,0,0); g.add(m);} return g; }
+function base(scene, size){
+  const g = new T.Mesh(new T.CylinderGeometry(size,size*1.06,1.2,48), M.ground());
+  g.position.y=-.6; scene.add(g);
+  const grid = new T.GridHelper(size*2, 18, 0x3c4a58, 0x2b3641);
+  grid.position.y=.02; scene.add(grid);
+}
+
+/* =====================================================================
+   MODEL 1 — GRINDING MILL (trunnion supported, girth gear + pinion)
+   ===================================================================== */
+function buildMill(scene){
+  base(scene, 26);
+  const g = new T.Group(); scene.add(g);
+
+  // rotating assembly
+  const rot = new T.Group(); rot.position.y=7; g.add(rot);
+  const shell = cyl(6,6,16,36,M.shell()); shell.rotation.z=Math.PI/2; rot.add(shell);
+  // shell ribs
+  for(let i=-3;i<=3;i++){ const rib=torus(6.15,.22,M.dark()); rib.rotation.y=Math.PI/2; rib.position.x=i*2.2; rot.add(rib); }
+  // heads (cones)
+  const headL=cyl(3.2,6,2.6,36,M.steel()); headL.rotation.z=Math.PI/2; headL.position.x=-9.3; rot.add(headL);
+  const headR=cyl(6,3.2,2.6,36,M.steel()); headR.rotation.z=Math.PI/2; headR.position.x=9.3; rot.add(headR);
+  // trunnions
+  const trL=cyl(2.6,2.6,3.4,28,M.steel()); trL.rotation.z=Math.PI/2; trL.position.x=-12.3; rot.add(trL);
+  const trR=cyl(2.6,2.6,3.4,28,M.steel()); trR.rotation.z=Math.PI/2; trR.position.x=12.3; rot.add(trR);
+  // girth gear with teeth
+  const gear=torus(7,.55,M.amber()); gear.rotation.y=Math.PI/2; gear.position.x=6.5; rot.add(gear);
+  const teeth=ring(7.55,.3,40,()=>box(.55,.6,.9,M.amber())); teeth.rotation.z=Math.PI/2; teeth.rotation.y=0; teeth.position.x=6.5;
+  teeth.rotation.set(0,0,Math.PI/2); rot.add(teeth);
+
+  // static: bearing pedestals
+  [[-12.3],[12.3]].forEach(([x])=>{
+    const ped=box(4.2,5.4,6.4,M.concrete()); ped.position.set(x,2.7,0); g.add(ped);
+    const cap=cyl(3.1,3.1,4,28,M.dark()); cap.rotation.z=Math.PI/2; cap.position.set(x,7,0); g.add(cap);
+  });
+  // pinion + motor
+  const pin=cyl(1.5,1.5,3,20,M.amber()); pin.rotation.z=Math.PI/2; pin.position.set(6.5,1.9,9.1); g.add(pin);
+  const mBase=box(9,1,4,M.concrete()); mBase.position.set(10.5,.5,9.1); g.add(mBase);
+  const motor=cyl(1.7,1.7,5,24,M.red()); motor.rotation.z=Math.PI/2; motor.position.set(11.5,2.1,9.1); g.add(motor);
+  const mbox=box(1.6,1.4,1.6,M.dark()); mbox.position.set(11.5,3.6,9.1); g.add(mbox);
+  // feed chute
+  const chute=box(3.4,3,2.6,M.rust()); chute.position.set(-15.2,8.6,0); chute.rotation.z=.5; g.add(chute);
+  const feedLeg=box(.8,7,.8,M.dark()); feedLeg.position.set(-15.8,3.5,0); g.add(feedLeg);
+
+  return { update(t,dt){ rot.rotation.x += dt*.65; pin.rotation.x -= dt*2.8; } };
+}
+
+/* =====================================================================
+   MODEL 2 — PRIMARY GYRATORY CRUSHER
+   ===================================================================== */
+function buildCrusher(scene){
+  base(scene, 24);
+  const g=new T.Group(); scene.add(g);
+
+  // bottom shell / drive station
+  const found=cyl(7.5,8.5,3,36,M.concrete()); found.position.y=1.5; g.add(found);
+  const bottom=cyl(5,6.5,5,36,M.shell()); bottom.position.y=5.5; g.add(bottom);
+  // countershaft + motor
+  const cs=cyl(.9,.9,7,18,M.steel()); cs.rotation.z=Math.PI/2; cs.position.set(7.2,4.6,0); g.add(cs);
+  const csm=cyl(1.5,1.5,3.4,22,M.red()); csm.rotation.z=Math.PI/2; csm.position.set(11.2,4.6,0); g.add(csm);
+  // top shell (concaves) – flared
+  const top=cyl(7.6,5,6,36,M.rust()); top.position.y=11; g.add(top);
+  const rim=torus(7.7,.5,M.dark()); rim.rotation.x=Math.PI/2; rim.position.y=14; g.add(rim);
+  // spider
+  const spider=new T.Group(); spider.position.y=14.6; g.add(spider);
+  for(let i=0;i<3;i++){ const arm=box(15,.9,1.4,M.steel()); arm.rotation.y=i*Math.PI/3; spider.add(arm); }
+  const hub=cyl(1.9,1.9,2.4,20,M.dark()); hub.position.y=.4; spider.add(hub);
+
+  // gyrating mantle assembly (main shaft + cone)
+  const gyr=new T.Group(); gyr.position.y=9.2; g.add(gyr);
+  const shaft=cyl(.9,.9,11,18,M.steel()); shaft.position.y=3.2; gyr.add(shaft);
+  const mantle=cyl(1.6,4.6,6.4,36,M.amber()); mantle.position.y=1.6; gyr.add(mantle);
+  const nut=cyl(1.2,1.6,1.2,18,M.dark()); nut.position.y=5.3; gyr.add(nut);
+
+  // rock pocket ring
+  const rocks=new T.Group(); rocks.position.y=13.6; g.add(rocks);
+  for(let i=0;i<14;i++){ const a=i/14*Math.PI*2, r=6.1+Math.random()*.8;
+    const rock=new T.Mesh(new T.DodecahedronGeometry(.55+Math.random()*.5), M.dark());
+    rock.position.set(Math.cos(a)*r,Math.random()*.5,Math.sin(a)*r); rocks.add(rock); }
+
+  // service platform
+  const plat=torus(9.4,.28,M.steel()); plat.rotation.x=Math.PI/2; plat.position.y=9.6; g.add(plat);
+  for(let i=0;i<6;i++){ const a=i/6*Math.PI*2; const leg=box(.4,9.6,.4,M.dark());
+    leg.position.set(Math.cos(a)*9.4,4.8,Math.sin(a)*9.4); g.add(leg); }
+
+  return { update(t,dt){
+    const w=t*3.1, tilt=.055;
+    gyr.rotation.set(Math.sin(w)*tilt, gyr.rotation.y+dt*.8, Math.cos(w)*tilt);
+    csm.rotation.x -= dt*3;
+  }};
+}
+
+/* =====================================================================
+   MODEL 3 — MINE WINDER / HOIST (drum winder + headframe)
+   ===================================================================== */
+function buildWinder(scene){
+  base(scene, 30);
+  const g=new T.Group(); g.position.x=-4; scene.add(g);
+
+  // winder house floor
+  const slab=box(20,1,14,M.concrete()); slab.position.set(-6,.5,0); g.add(slab);
+  // drum
+  const drum=new T.Group(); drum.position.set(-8,5.4,0); g.add(drum);
+  const dr=cyl(3.6,3.6,7.5,36,M.shell()); dr.rotation.x=Math.PI/2; dr.rotation.z=Math.PI/2; drum.add(dr);
+  const cheekL=cyl(4.6,4.6,.6,36,M.amber()); cheekL.rotation.z=Math.PI/2; cheekL.position.x=-4; drum.add(cheekL);
+  const cheekR=cyl(4.6,4.6,.6,36,M.amber()); cheekR.rotation.z=Math.PI/2; cheekR.position.x=4; drum.add(cheekR);
+  for(let i=-3;i<=3;i++){ const coil=torus(3.68,.14,M.dark()); coil.rotation.y=Math.PI/2; coil.position.x=i*.9; drum.add(coil); }
+  // bearing stands
+  [[-12.6],[-3.4]].forEach(([x])=>{ const st=box(2.6,4.8,4.6,M.concrete()); st.position.set(x,2.4,0); g.add(st); });
+  // motor
+  const wm=cyl(2.3,2.3,4.6,26,M.red()); wm.rotation.z=Math.PI/2; wm.position.set(-16.5,5.4,0); g.add(wm);
+  // brake calipers
+  [[-1,-1],[1,1]].forEach(([s])=>{ const br=box(1,3.2,1.4,M.dark()); br.position.set(-8+s*4.9,7.6,3.2); g.add(br); });
+  // control cab
+  const cab=box(4.6,3.4,4,M.dark()); cab.position.set(-6,2.7,-6.6); g.add(cab);
+  const win=box(4.2,1.4,.2,M.glass()); win.position.set(-6,3.4,-4.55); g.add(win);
+
+  // headframe
+  const hf=new T.Group(); hf.position.set(9,0,0); g.add(hf);
+  const legAngle=.16;
+  for(const [dx,dz] of [[-2.4,-2.4],[2.4,-2.4],[-2.4,2.4],[2.4,2.4]]){
+    const leg=box(.8,22,.8,M.steel()); leg.position.set(dx*.7,11,dz*.7); leg.rotation.z=dx>0?-legAngle*.4:legAngle*.4; hf.add(leg);
+  }
+  // back legs (inclined toward winder)
+  for(const dz of [-2.2,2.2]){ const bl=box(.7,24,.7,M.amber()); bl.position.set(-4.5,10.6,dz*.7); bl.rotation.z=.42; hf.add(bl); }
+  // cross-bracing
+  for(let y=4;y<=18;y+=4.6){ const cb=box(4.6,.5,.5,M.dark()); cb.position.set(0,y,1.75); hf.add(cb);
+    const cb2=cb.clone(); cb2.position.z=-1.75; hf.add(cb2); }
+  // sheave wheel
+  const sheave=torus(2.6,.35,M.amber()); sheave.position.set(0,22.6,0); hf.add(sheave);
+  const spokes=new T.Group(); spokes.position.copy(sheave.position);
+  for(let i=0;i<4;i++){ const sp=box(.3,4.6,.3,M.dark()); sp.rotation.z=i*Math.PI/4; spokes.add(sp); } hf.add(spokes);
+  // shaft collar
+  const collar=box(7,1.2,7,M.concrete()); collar.position.set(9,.6,0); g.add(collar);
+  const mouth=box(3.6,.7,3.6,M.dark()); mouth.position.set(9,1.3,0); g.add(mouth);
+
+  // ropes: drum -> sheave -> conveyance
+  const ropeMat=new T.LineBasicMaterial({color:0xd9e2ea});
+  const ropeGeo=new T.BufferGeometry().setFromPoints([new T.Vector3(-8,8.9,0), new T.Vector3(9,22.6+2.6,0)]);
+  g.add(new T.Line(ropeGeo,ropeMat));
+  const rope2=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(9+2.6,22.6,0), new T.Vector3(11.6,3,0)]),ropeMat);
+  g.add(rope2);
+  // conveyance (skip) travelling
+  const skip=box(1.7,3.2,1.7,M.amber()); skip.position.set(11.6,6,0); g.add(skip);
+
+  return { update(t,dt){
+    drum.rotation.x += dt*1.2; sheave.rotation.z += dt*1.5; spokes.rotation.z += dt*1.5;
+    const y = 4.5 + (Math.sin(t*.45)+1)*0.5*14;      // 4.5 .. 18.5
+    skip.position.y=y;
+    rope2.geometry.setFromPoints([new T.Vector3(9+2.6,22.6,0), new T.Vector3(11.6,y+1.6,0)]);
+  }};
+}
+
+/* =====================================================================
+   WALK SCENE A — CEMENT PLANT
+   ===================================================================== */
+function buildCementPlant(scene){
+  scene.fog=new T.Fog(0x10161d,80,340);
+  const g=new T.Group(); scene.add(g);
+  const ground=new T.Mesh(new T.PlaneGeometry(320,320), M.ground()); ground.rotation.x=-Math.PI/2; g.add(ground);
+  const grid=new T.GridHelper(320,40,0x374554,0x2b3641); grid.position.y=.03; g.add(grid);
+
+  // ---- preheater tower ----
+  const tower=new T.Group(); tower.position.set(-40,0,0); g.add(tower);
+  for(let i=0;i<5;i++){ const fl=box(16,7,16,i%2?M.concrete():M.dark()); fl.position.y=3.5+i*8; tower.add(fl);
+    const cycl=cyl(2.6,1,6,20,M.rust()); cycl.position.set(9.5,6+i*8,(i%2?5:-5)); tower.add(cycl); }
+  const twTop=box(17,2,17,M.amber()); twTop.position.y=42; tower.add(twTop);
+  // downcomer duct
+  const duct=cyl(2.2,2.2,40,16,M.steel()); duct.position.set(-10.5,21,0); tower.add(duct);
+
+  // ---- rotary kiln (inclined) ----
+  const kiln=new T.Group(); kiln.position.set(-28,10.5,0); kiln.rotation.z=-.06; g.add(kiln);
+  const kshell=cyl(4,4,58,30,M.rust()); kshell.rotation.z=Math.PI/2; kshell.position.x=29; kiln.add(kshell);
+  const kRot=new T.Group(); kiln.add(kRot);
+  for(let i=0;i<3;i++){ const tyre=torus(4.6,.7,M.steel()); tyre.rotation.y=Math.PI/2; tyre.position.x=8+i*20; kRot.add(tyre); }
+  const kGear=torus(4.9,.6,M.amber()); kGear.rotation.y=Math.PI/2; kGear.position.x=44; kRot.add(kGear);
+  // piers & rollers
+  for(let i=0;i<3;i++){ const pier=box(7,8.4,10,M.concrete()); pier.position.set(-20+8+i*20,4.2,0); g.add(pier);
+    for(const dz of [-2.6,2.6]){ const roll=cyl(1.5,1.5,3,16,M.dark()); roll.rotation.x=Math.PI/2;
+      roll.rotation.z=Math.PI/2; roll.position.set(-20+8+i*20,8.8,dz); g.add(roll); } }
+
+  // ---- burner / kiln hood + clinker cooler ----
+  const hood=box(9,10,9,M.dark()); hood.position.set(32,5,0); g.add(hood);
+  const cooler=box(26,5,10,M.steel()); cooler.position.set(46,2.5,6); cooler.rotation.y=-.25; g.add(cooler);
+  const stack2=cyl(1.6,2.2,26,18,M.concrete()); stack2.position.set(38,13,-8); g.add(stack2);
+
+  // ---- raw mill building ----
+  const millB=box(20,14,16,M.dark()); millB.position.set(-70,7,-20); g.add(millB);
+  const millRoof=box(21,1,17,M.amber()); millRoof.position.set(-70,14.5,-20); g.add(millRoof);
+
+  // ---- silos ----
+  for(let i=0;i<3;i++){ const silo=cyl(6,6,26,28,M.concrete()); silo.position.set(60+i*1,13,-30-i*14); g.add(silo);
+    const cone=cyl(0.5,6,4,28,M.dark()); cone.position.set(60+i*1,28,-30-i*14); g.add(cone); }
+
+  // ---- main stack ----
+  const stack=cyl(2,3.4,44,20,M.concrete()); stack.position.set(-52,22,22); g.add(stack);
+  const stripe=cyl(2.12,2.5,4,20,M.red()); stripe.position.set(-52,40,22); g.add(stripe);
+  // smoke puffs
+  const puffs=[]; for(let i=0;i<6;i++){ const p=new T.Mesh(new T.SphereGeometry(1.6,12,10), new T.MeshStandardMaterial({color:0xaab6c2,transparent:true,opacity:.35,roughness:1}));
+    p.position.set(-52,45+i*3,22); puffs.push(p); g.add(p); }
+
+  // conveyor gallery tower->silos
+  const conv=box(70,1.2,3.4,M.steel()); conv.position.set(20,16,-26); conv.rotation.y=.12; g.add(conv);
+  for(let i=0;i<6;i++){ const cl=box(.9,16,.9,M.dark()); cl.position.set(-10+i*12,8,-26-(-10+i*12)*-.12); g.add(cl); }
+
+  // lights on tower
+  const lamp=new T.PointLight(0xffc46b,.9,60); lamp.position.set(-40,44,0); g.add(lamp);
+
+  return { update(t,dt){
+    kRot.rotation.x += dt*.5; kshell.rotation.x += dt*.5;
+    puffs.forEach((p,i)=>{ p.position.y += dt*2.2; p.material.opacity -= dt*.06;
+      if(p.position.y>66){p.position.y=45;p.material.opacity=.35;} });
+  }};
+}
+/* camera path for cement walk-through */
+const cementPath = new T.CatmullRomCurve3([
+  new T.Vector3(90,9,70), new T.Vector3(55,7,40), new T.Vector3(46,6,14),
+  new T.Vector3(20,8,10), new T.Vector3(-6,9,12), new T.Vector3(-26,12,16),
+  new T.Vector3(-48,16,18), new T.Vector3(-62,18,-2), new T.Vector3(-52,22,-24),
+  new T.Vector3(-20,18,-34), new T.Vector3(20,16,-40), new T.Vector3(55,12,-30),
+  new T.Vector3(80,10,0), new T.Vector3(90,9,70)
+], true, 'catmullrom', .12);
+const cementLook = new T.CatmullRomCurve3([
+  new T.Vector3(40,6,0), new T.Vector3(20,8,0), new T.Vector3(0,10,0),
+  new T.Vector3(-30,14,0), new T.Vector3(-40,20,0), new T.Vector3(-40,24,0),
+  new T.Vector3(-52,26,22), new T.Vector3(-70,10,-20), new T.Vector3(-40,16,-10),
+  new T.Vector3(20,12,-26), new T.Vector3(60,12,-30), new T.Vector3(32,6,0),
+  new T.Vector3(0,10,0), new T.Vector3(40,6,0)
+], true, 'catmullrom', .12);
+
+/* =====================================================================
+   WALK SCENE B — CONCENTRATOR PLANT
+   ===================================================================== */
+function buildConcentrator(scene){
+  scene.fog=new T.Fog(0x10161d,80,340);
+  const g=new T.Group(); scene.add(g);
+  const ground=new T.Mesh(new T.PlaneGeometry(320,320), M.ground()); ground.rotation.x=-Math.PI/2; g.add(ground);
+  const grid=new T.GridHelper(320,40,0x374554,0x2b3641); grid.position.y=.03; g.add(grid);
+
+  // ---- SAG mill ----
+  const millG=new T.Group(); millG.position.set(-55,0,-10); g.add(millG);
+  [[-8],[8]].forEach(([x])=>{ const ped=box(5,6,7,M.concrete()); ped.position.set(x,3,0); millG.add(ped); });
+  const mRot=new T.Group(); mRot.position.y=8; millG.add(mRot);
+  const mShell=cyl(5.5,5.5,12,32,M.shell()); mShell.rotation.z=Math.PI/2; mRot.add(mShell);
+  const mGear=torus(6.3,.6,M.amber()); mGear.rotation.y=Math.PI/2; mGear.position.x=4.5; mRot.add(mGear);
+  for(const x of [-7.5,7.5]){ const tr=cyl(2.4,2.4,3,22,M.steel()); tr.rotation.z=Math.PI/2; tr.position.set(x,8,0); millG.add(tr); }
+  const millHouseRoof=box(26,1,20,M.amber()); millHouseRoof.position.set(0,17,0); millG.add(millHouseRoof);
+  for(const [dx,dz] of [[-12,-9],[12,-9],[-12,9],[12,9]]){ const c=box(1,17,1,M.dark()); c.position.set(dx,8.5,dz); millG.add(c); }
+
+  // ---- cyclone cluster ----
+  const cyc=new T.Group(); cyc.position.set(-30,0,-32); g.add(cyc);
+  const cycPlat=box(14,1,14,M.steel()); cycPlat.position.y=12; cyc.add(cycPlat);
+  for(const [dx,dz] of [[-4,-4],[4,-4],[-4,4],[4,4]]){
+    const body=cyl(1.8,1.8,4,16,M.green()); body.position.set(dx,15,dz); cyc.add(body);
+    const cone=cyl(1.8,.4,5,16,M.green()); cone.position.set(dx,10.5,dz); cyc.add(cone); }
+  for(const [dx,dz] of [[-6,-6],[6,-6],[-6,6],[6,6]]){ const l=box(.8,12,.8,M.dark()); l.position.set(dx,6,dz); cyc.add(l); }
+
+  // ---- flotation banks (two rows) ----
+  const agitators=[];
+  for(let row=0;row<2;row++){
+    for(let i=0;i<5;i++){
+      const cellG=new T.Group(); cellG.position.set(-8+i*14, 0, 14+row*20); g.add(cellG);
+      const tank=cyl(5,4.4,7,24,row?M.green():M.slurry()); tank.position.y=3.5; cellG.add(tank);
+      const froth=cyl(4.6,4.6,.7,24,M.froth()); froth.position.y=7.2; cellG.add(froth);
+      const mast=cyl(.35,.35,6,10,M.steel()); mast.position.y=10; cellG.add(mast);
+      const motor=box(1.8,1.4,1.8,M.red()); motor.position.y=13.2; cellG.add(motor);
+      const agi=new T.Group(); agi.position.y=8.1; cellG.add(agi);
+      for(let b=0;b<3;b++){ const blade=box(3.6,.2,.7,M.steel()); blade.rotation.y=b*Math.PI/3; agi.add(blade); }
+      agitators.push(agi);
+      const walkway=box(12,.4,2.4,M.dark()); walkway.position.set(6,8,0); cellG.add(walkway);
+    }
+  }
+
+  // ---- thickener ----
+  const th=new T.Group(); th.position.set(62,0,-16); g.add(th);
+  const wall=new T.Mesh(new T.CylinderGeometry(22,22,5,48,1,true), M.concrete()); wall.position.y=2.5; wall.material.side=T.DoubleSide; th.add(wall);
+  const water=cyl(21.6,21.6,.4,48,M.slurry()); water.position.y=4.6; th.add(water);
+  const bridge=box(45,1,2.6,M.steel()); bridge.position.y=6.4; th.add(bridge);
+  const rail=box(45,.8,.2,M.amber()); rail.position.set(0,7.3,1.2); th.add(rail);
+  const rake=new T.Group(); th.add(rake);
+  const rArm=box(40,.5,1,M.dark()); rArm.position.y=1.6; rake.add(rArm);
+  for(let i=-4;i<=4;i++){ if(!i)continue; const tooth=box(.3,1.2,.3,M.dark()); tooth.position.set(i*4.2,.9,0); rake.add(tooth); }
+  const centerCol=cyl(1.2,1.2,7,16,M.steel()); centerCol.position.y=3.5; th.add(centerCol);
+
+  // ---- overland conveyor into mill ----
+  const convG=new T.Group(); g.add(convG);
+  const belt=box(80,.8,3,M.dark()); belt.position.set(-30,12,-52); belt.rotation.y=.35; convG.add(belt);
+  for(let i=0;i<7;i++){ const x=-64+i*12; const leg=box(1,12,1,M.steel());
+    leg.position.set(x, 6, -52 - (x+30)*-.35); convG.add(leg); }
+  const chuteBox=box(5,6,5,M.rust()); chuteBox.position.set(-66,10,-38); convG.add(chuteBox);
+
+  // ---- reagent tanks ----
+  for(let i=0;i<3;i++){ const tk=cyl(3.4,3.4,9,24,M.steel()); tk.position.set(28+i*9,4.5,44); g.add(tk);
+    const lid=cyl(3.5,3.5,.5,24,M.amber()); lid.position.set(28+i*9,9.2,44); g.add(lid); }
+
+  const lamp=new T.PointLight(0x9fd0ff,.7,80); lamp.position.set(0,30,0); g.add(lamp);
+
+  return { update(t,dt){
+    mRot.rotation.x += dt*.6;
+    agitators.forEach(a=>a.rotation.y+=dt*4);
+    rake.rotation.y += dt*.12;
+  }};
+}
+const concPath = new T.CatmullRomCurve3([
+  new T.Vector3(95,10,60), new T.Vector3(60,8,46), new T.Vector3(30,7,34),
+  new T.Vector3(-2,8,24), new T.Vector3(-30,8,18), new T.Vector3(-52,9,8),
+  new T.Vector3(-62,10,-14), new T.Vector3(-46,10,-32), new T.Vector3(-16,12,-44),
+  new T.Vector3(16,12,-42), new T.Vector3(44,10,-34), new T.Vector3(66,12,-16),
+  new T.Vector3(84,10,14), new T.Vector3(95,10,60)
+], true, 'catmullrom', .12);
+const concLook = new T.CatmullRomCurve3([
+  new T.Vector3(40,6,44), new T.Vector3(20,6,24), new T.Vector3(-8,6,14),
+  new T.Vector3(-40,8,14), new T.Vector3(-55,8,-10), new T.Vector3(-55,8,-10),
+  new T.Vector3(-30,10,-32), new T.Vector3(-30,10,-32), new T.Vector3(-30,12,-52),
+  new T.Vector3(30,6,44), new T.Vector3(62,5,-16), new T.Vector3(62,5,-16),
+  new T.Vector3(0,8,20), new T.Vector3(40,6,44)
+], true, 'catmullrom', .12);
+
+/* =====================================================================
+   WALK-THROUGH controller
+   ===================================================================== */
+function walkThrough(container, buildFn, path, look, duration){
+  const canvas = container.querySelector('canvas');
+  const overlay = container.querySelector('.walk-overlay');
+  const bar = container.querySelector('.walkbar');
+  const progEl = container.querySelector('.prog .p');
+  const scene = makeScene();
+  const built = buildFn(scene);
+  const cam = new T.PerspectiveCamera(55, 2, .1, 800);
+  const renderer = makeRenderer(canvas);
+  function resize(){ const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); }
+  new ResizeObserver(resize).observe(canvas); resize();
+
+  let mode='idle';           // idle | play | pause | free
+  let u=0;                   // path progress 0..1
+  // free-look orbit state
+  let theta=.9, phi=1.2, dist=120; const target=new T.Vector3(0,8,0);
+  let drag=false,px=0,py=0;
+  canvas.addEventListener('pointerdown',e=>{ if(mode!=='free')return; drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove',e=>{ if(!drag)return;
+    theta-=(e.clientX-px)*.006; phi-=(e.clientY-py)*.005; phi=Math.max(.2,Math.min(1.45,phi)); px=e.clientX;py=e.clientY; });
+  canvas.addEventListener('pointerup',()=>drag=false);
+  canvas.addEventListener('wheel',e=>{ if(mode!=='free')return; e.preventDefault(); dist=Math.max(30,Math.min(220,dist+e.deltaY*.08)); },{passive:false});
+
+  const pauseBtn = container.querySelector('[data-act="pause"]');
+  overlay.addEventListener('click',()=>{ overlay.style.display='none'; bar.style.display='flex'; mode='play'; });
+  pauseBtn.addEventListener('click',()=>{
+    if(mode==='play'){mode='pause';pauseBtn.textContent='▶ Resume';}
+    else {mode='play';pauseBtn.textContent='⏸ Pause';} });
+  container.querySelector('[data-act="restart"]').addEventListener('click',()=>{ u=0; mode='play'; pauseBtn.textContent='⏸ Pause'; });
+  container.querySelector('[data-act="free"]').addEventListener('click',()=>{
+    if(mode==='free'){ mode='play'; pauseBtn.textContent='⏸ Pause'; container.querySelector('[data-act="free"]').textContent='🖱 Free look'; }
+    else { mode='free'; container.querySelector('[data-act="free"]').textContent='🎥 Guided tour'; } });
+
+  // idle intro camera drift
+  let last=performance.now();
+  (function loop(now){
+    requestAnimationFrame(loop);
+    const dt=Math.min((now-last)/1000,.05); last=now;
+    if(built.update) built.update(now/1000,dt);
+    if(mode==='play'){ u=(u+dt/duration)%1; }
+    if(mode==='free'){
+      cam.position.set(target.x+dist*Math.sin(phi)*Math.sin(theta), target.y+dist*Math.cos(phi), target.z+dist*Math.sin(phi)*Math.cos(theta));
+      cam.lookAt(target);
+    } else if(mode==='idle'){
+      const a=now/9000;
+      cam.position.set(Math.sin(a)*110, 34, Math.cos(a)*110); cam.lookAt(0,10,0);
+    } else {
+      const p=path.getPointAt(u), l=look.getPointAt(u);
+      cam.position.copy(p); cam.lookAt(l);
+    }
+    if(progEl) progEl.style.width=(u*100).toFixed(1)+'%';
+    renderer.render(scene,cam);
+  })(last);
+}
+
+/* =====================================================================
+   LAZY INIT — only build a scene when it scrolls near the viewport
+   ===================================================================== */
+const builders = { mill:buildMill, crusher:buildCrusher, winder:buildWinder };
+const viewerOpts = {
+  mill:{dist:42,minD:18,maxD:90,targetY:7},
+  crusher:{dist:38,minD:16,maxD:80,targetY:8,phi:1.05},
+  winder:{dist:52,minD:20,maxD:110,targetY:9,theta:.9},
+};
+const lazy = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const el=en.target; lazy.unobserve(el);
+    if(el.dataset.model) orbitViewer(el, builders[el.dataset.model], viewerOpts[el.dataset.model]);
+    if(el.dataset.walk==='cement') walkThrough(el, buildCementPlant, cementPath, cementLook, 55);
+    if(el.dataset.walk==='concentrator') walkThrough(el, buildConcentrator, concPath, concLook, 55);
+  });
+},{rootMargin:'300px'});
+document.querySelectorAll('[data-model],[data-walk]').forEach(el=>lazy.observe(el));
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
