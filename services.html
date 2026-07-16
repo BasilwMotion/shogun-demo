@@ -4,124 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services &amp; Products — SHOGUN CONSTRUCTION</title>
-<meta name="description" content="Full breakdown of Shogun Construction services: Mills/Grinding, Crushers, Winders/Hoists, Cement Plants and Concentrator Plant Equipment — with interactive 3D models.">
+<meta name="description" content="Full breakdown of Shogun Construction services: Mills/Grinding, Crushers, Winders/Hoists, Cement Plants and Concentrator Plant Equipment — with interactive 3D models you can take apart.">
+<meta name="referrer" content="no-referrer">
+<script>
+/* graceful fallback if a hotlinked photo fails to load */
+addEventListener('error',function(e){
+  var t=e.target;
+  if(t&&t.tagName==='IMG'){t.style.visibility='hidden';}
+},true);
+</script>
 <style>
 :root{
-  --ink:#141a22; --panel:#232f3e; --line:#33414f;
-  --amber:#f5a623; --amber2:#ffbe45; --steel:#8fa3b8; --ok:#39c07f;
-  --shadow:0 18px 50px rgba(10,16,24,.35);
+  --red:#b02323; --red2:#8f1c1c; --dark:#1c1f24;
+  --text:#2b2f34; --grey:#5b636c; --light:#f4f5f6; --line:#e2e5e8;
+  --shadow:0 14px 40px rgba(28,31,36,.12);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--ink);color:#e8eef4;line-height:1.6;overflow-x:hidden}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.65;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-weight:800;letter-spacing:.5px}
-.kicker{color:var(--amber);font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
-.sec-title{font-size:clamp(1.6rem,3.2vw,2.3rem);text-transform:uppercase}
-.lead{color:var(--steel);max-width:780px;margin-top:12px}
-section{padding:80px 0;position:relative}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+h1,h2,h3{font-weight:800;letter-spacing:.4px;color:var(--dark)}
+.kicker{color:var(--red);font-size:.76rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-size:clamp(1.5rem,3vw,2.2rem);text-transform:uppercase}
+.lead{color:var(--grey);max-width:780px;margin-top:12px}
+section{padding:78px 0;position:relative}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.on{opacity:1;transform:none}
 
-/* top bar + nav (shared) */
-.topbar{background:#0d1218;font-size:.8rem;color:var(--steel);padding:7px 0}
-.topbar .wrap{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
-.topbar a:hover{color:var(--amber)}
-.topbar .dot{color:var(--amber)}
-nav.main{position:sticky;top:0;z-index:60;background:rgba(20,26,34,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.25rem;letter-spacing:2px}
-.logo .mark{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--amber),#d98200);display:grid;place-items:center;color:#141a22;font-size:1.3rem;font-weight:900}
-.logo small{display:block;font-size:.58rem;letter-spacing:1.6px;color:var(--steel);font-weight:600}
-.navlinks{display:flex;gap:6px;align-items:center}
-.navlinks a{padding:9px 15px;border-radius:8px;font-size:.9rem;font-weight:600;color:#cfd9e3;transition:.2s}
-.navlinks a:hover,.navlinks a.active{background:rgba(245,166,35,.14);color:var(--amber2)}
-.navlinks a.cta{background:var(--amber);color:#141a22;margin-left:8px}
-.navlinks a.cta:hover{background:var(--amber2)}
-.burger{display:none;background:none;border:1px solid var(--line);color:#e8eef4;border-radius:8px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
-@media(max-width:900px){
+/* top bar + nav */
+.topbar{background:var(--dark);font-size:.8rem;color:#c9ced4;padding:8px 0}
+.topbar .wrap{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.topbar span.lbl{color:#8c939b;letter-spacing:1.5px;font-weight:700;font-size:.7rem;text-transform:uppercase}
+.topbar a:hover{color:#fff;text-decoration:underline}
+nav.main{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(28,31,36,.06)}
+nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:52px;width:auto}
+.brand .bt{line-height:1.15}
+.brand .bt b{display:block;font-size:1.15rem;letter-spacing:2px;color:var(--dark);font-weight:900}
+.brand .bt small{display:block;font-size:.6rem;letter-spacing:1.4px;color:var(--grey);font-weight:600;text-transform:uppercase}
+.navlinks{display:flex;gap:4px;align-items:center}
+.navlinks a{padding:9px 15px;border-radius:4px;font-size:.88rem;font-weight:600;color:var(--text);transition:.2s;text-transform:uppercase;letter-spacing:.4px}
+.navlinks a:hover,.navlinks a.active{color:var(--red)}
+.navlinks a.cta{background:var(--red);color:#fff;margin-left:10px}
+.navlinks a.cta:hover{background:var(--red2);color:#fff}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--dark);border-radius:4px;padding:8px 12px;font-size:.8rem;cursor:pointer;font-weight:800;letter-spacing:1px}
+@media(max-width:960px){
   .burger{display:block}
-  .navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:#141a22;flex-direction:column;padding:14px;border-bottom:1px solid var(--line)}
+  .navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;padding:14px;border-bottom:1px solid var(--line)}
   .navlinks.open{display:flex}
 }
 
 /* page hero */
-.phero{padding:76px 0 60px;background:
-  linear-gradient(115deg,rgba(13,18,24,.95) 30%,rgba(13,18,24,.6)),
-  repeating-linear-gradient(45deg,#1a222c 0 26px,#18202a 26px 52px);border-bottom:1px solid var(--line)}
-.phero h1{font-size:clamp(2rem,4.4vw,3rem);text-transform:uppercase}
-.phero h1 span{color:var(--amber)}
+.phero{padding:72px 0 58px;color:#fff;
+  background:linear-gradient(100deg,rgba(20,22,26,.93) 35%,rgba(20,22,26,.6)),
+  url('https://shogun.co.za/wp-content/uploads/2023/02/Shogun-Construction-services-mills-grinders.jpg') center/cover no-repeat;}
+.phero h1{font-size:clamp(1.9rem,4.2vw,2.9rem);text-transform:uppercase;color:#fff}
+.phero h1 span{color:#e64545}
+.phero .kicker{color:#e6c9c9}
+.phero .lead{color:#d8dce1}
 .jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-.jump a{background:var(--panel);border:1px solid var(--line);padding:10px 18px;border-radius:99px;font-size:.83rem;font-weight:700;letter-spacing:.5px;transition:.2s}
-.jump a:hover{background:var(--amber);color:#141a22;border-color:var(--amber)}
+.jump a{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);padding:10px 18px;border-radius:4px;font-size:.78rem;font-weight:700;letter-spacing:1px;transition:.2s;text-transform:uppercase;color:#fff}
+.jump a:hover{background:var(--red);border-color:var(--red)}
 
 /* service blocks */
 .svc-block{border-bottom:1px solid var(--line)}
-.svc-block:nth-child(even){background:#181f29}
-.duo{display:grid;grid-template-columns:1.1fr 1fr;gap:38px;margin-top:40px;align-items:start}
+.svc-block:nth-of-type(even){background:var(--light)}
+.duo{display:grid;grid-template-columns:1.15fr 1fr;gap:38px;margin-top:40px;align-items:start}
 @media(max-width:940px){.duo{grid-template-columns:1fr}}
-.viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #2a3644 0%, #10161d 75%);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.viewer canvas{display:block;width:100%;height:430px;cursor:grab;touch-action:none}
+.viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #313d4b 0%, #12181f 75%);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.viewer canvas{display:block;width:100%;height:440px;cursor:grab;touch-action:none}
 .viewer canvas:active{cursor:grabbing}
-.viewer .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
-.viewer .hud .tag3d{background:rgba(245,166,35,.92);color:#141a22;font-weight:900;font-size:.68rem;letter-spacing:2px;padding:5px 12px;border-radius:99px}
-.viewer .hud .hint{color:#b9c8d6;font-size:.72rem;background:rgba(13,18,24,.65);padding:5px 12px;border-radius:99px}
-.viewer .ctrls{position:absolute;bottom:12px;left:14px;display:flex;gap:8px}
-.viewer .ctrls button{background:rgba(13,18,24,.75);border:1px solid var(--line);color:#dfe8f0;font-size:.75rem;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;transition:.2s;letter-spacing:.5px}
-.viewer .ctrls button:hover,.viewer .ctrls button.on{background:var(--amber);color:#141a22;border-color:var(--amber)}
-.svc-info h3{font-size:1.05rem;color:var(--amber);margin:22px 0 8px;text-transform:uppercase;letter-spacing:1px}
-.svc-info p.desc{color:#c4d0dc}
+.viewer .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none;gap:10px}
+.viewer .hud .tag3d{background:var(--red);color:#fff;font-weight:900;font-size:.64rem;letter-spacing:2px;padding:5px 12px;border-radius:3px;white-space:nowrap}
+.viewer .hud .hint{color:#cdd7e0;font-size:.7rem;background:rgba(13,18,24,.7);padding:5px 12px;border-radius:3px;text-align:right}
+.viewer .ctrls{position:absolute;bottom:12px;left:14px;right:14px;display:flex;gap:8px;flex-wrap:wrap}
+.viewer .ctrls button{background:rgba(13,18,24,.78);border:1px solid #3c4a58;color:#e6ecf2;font-size:.72rem;font-weight:700;padding:8px 14px;border-radius:3px;cursor:pointer;transition:.2s;letter-spacing:.8px;text-transform:uppercase}
+.viewer .ctrls button:hover,.viewer .ctrls button.on{background:var(--red);color:#fff;border-color:var(--red)}
+.viewer .explode-meter{position:absolute;right:14px;bottom:52px;width:120px;pointer-events:none}
+.viewer .explode-meter .lab{color:#cdd7e0;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;text-align:right;margin-bottom:4px}
+.viewer .explode-meter .track{height:5px;background:rgba(13,18,24,.8);border:1px solid #3c4a58;border-radius:99px;overflow:hidden}
+.viewer .explode-meter .fillx{height:100%;width:0;background:var(--red)}
+.svc-info .photo{border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:22px;max-height:220px;background:#dfe3e7}
+.svc-info .photo img{width:100%;height:220px;object-fit:cover}
+.svc-info h3{font-size:1rem;color:var(--red);margin:20px 0 8px;text-transform:uppercase;letter-spacing:1px}
+.svc-info p.desc{color:var(--grey)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.chip{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 13px;font-size:.8rem;color:#cfd9e3;transition:.2s;cursor:default}
-.chip:hover{border-color:var(--amber);color:var(--amber2);transform:translateY(-2px)}
+.chip{background:#fff;border:1px solid var(--line);border-radius:3px;padding:7px 13px;font-size:.79rem;color:var(--text);transition:.2s;cursor:default}
+.chip:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
 
 /* walkthrough blocks */
 .walk{margin-top:40px}
-.walkscreen{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#10161d}
+.walkscreen{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#12181f}
 .walkscreen canvas{display:block;width:100%;height:500px;touch-action:none}
 .walk-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,18,24,.55);backdrop-filter:blur(2px);cursor:pointer;transition:.3s;z-index:5}
-.walk-overlay:hover{background:rgba(13,18,24,.4)}
-.walk-overlay .play{width:92px;height:92px;border-radius:50%;background:var(--amber);display:grid;place-items:center;font-size:2rem;color:#141a22;box-shadow:0 0 0 12px rgba(245,166,35,.25);transition:.25s}
+.walk-overlay:hover{background:rgba(13,18,24,.42)}
+.walk-overlay .play{width:90px;height:90px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(176,35,35,.3);transition:.25s}
 .walk-overlay:hover .play{transform:scale(1.08)}
-.walk-overlay .lbl{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-weight:800;letter-spacing:2px;font-size:.85rem;text-transform:uppercase;color:#fff}
+.walk-overlay .play::before{content:"";display:block;width:0;height:0;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:8px}
+.walk-overlay .lbl{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-weight:800;letter-spacing:2px;font-size:.82rem;text-transform:uppercase;color:#fff}
 .walkbar{position:absolute;left:14px;right:14px;bottom:12px;display:flex;gap:10px;align-items:center;z-index:4}
-.walkbar button{background:rgba(13,18,24,.78);border:1px solid var(--line);color:#dfe8f0;font-size:.75rem;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;letter-spacing:.5px}
-.walkbar button:hover{background:var(--amber);color:#141a22;border-color:var(--amber)}
-.walkbar .prog{flex:1;height:7px;background:rgba(13,18,24,.8);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
-.walkbar .prog .p{height:100%;width:0;background:var(--amber)}
-.walk-txt{margin-top:30px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px}
-.walk-txt h3{color:var(--amber);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.walk-txt p{color:#c4d0dc;margin-bottom:14px}
+.walkbar button{background:rgba(13,18,24,.78);border:1px solid #3c4a58;color:#e6ecf2;font-size:.72rem;font-weight:700;padding:8px 14px;border-radius:3px;cursor:pointer;letter-spacing:.8px;text-transform:uppercase}
+.walkbar button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.walkbar .prog{flex:1;height:6px;background:rgba(13,18,24,.8);border-radius:99px;overflow:hidden;border:1px solid #3c4a58}
+.walkbar .prog .p{height:100%;width:0;background:var(--red)}
+.walk-txt{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:32px;box-shadow:var(--shadow)}
+.svc-block:nth-of-type(odd) .walk-txt{background:var(--light)}
+.walk-txt h3{color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-size:1.05rem}
+.walk-txt p{color:var(--text);margin-bottom:14px}
 .walk-txt p:last-of-type{margin-bottom:0}
+.walk-txt strong{color:var(--dark)}
 
-.cta-strip{background:linear-gradient(135deg,#2a3240,#1b2430);border-top:1px solid var(--line);text-align:center}
-.cta-strip h2{font-size:clamp(1.5rem,3vw,2.2rem);text-transform:uppercase}
-.btn{display:inline-block;margin-top:24px;padding:15px 34px;border-radius:10px;background:var(--amber);color:#141a22;font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:.9rem;transition:.22s}
-.btn:hover{background:var(--amber2);transform:translateY(-2px)}
+.cta-strip{background:var(--dark);text-align:center;color:#fff}
+.cta-strip h2{font-size:clamp(1.4rem,2.8vw,2rem);text-transform:uppercase;color:#fff}
+.cta-strip .kicker{color:#e6c9c9}
+.btn{display:inline-block;margin-top:24px;padding:15px 34px;border-radius:4px;background:var(--red);color:#fff;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;font-size:.85rem;transition:.22s}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
 
-footer{background:#0d1218;border-top:1px solid var(--line);padding:44px 0 24px;text-align:center;color:var(--steel);font-size:.85rem}
-footer a{color:var(--amber)}
+footer{background:var(--dark);border-top:1px solid #33383f;padding:40px 0 24px;text-align:center;color:#aeb5bc;font-size:.85rem}
+footer a{color:#fff}
+footer a:hover{text-decoration:underline}
+
+/* mobile */
+@media(max-width:640px){
+  .viewer canvas{height:340px}
+  .walkscreen canvas{height:380px}
+  .viewer .hud .hint{display:none}
+  .viewer .explode-meter{top:44px;bottom:auto;width:90px}
+  .walkbar button{padding:8px 10px;font-size:.66rem}
+}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="wrap">
-    <span><span class="dot">●</span> 24-HOUR AVAILABILITY</span>
-    <a href="tel:+27561100070">☎ +27 56 110 0070</a>
-    <a href="tel:+27825277602">📱 +27 82 527 7602</a>
-    <a href="mailto:elko@shogunconstruction.co.za">✉ elko@shogunconstruction.co.za</a>
+    <span class="lbl">Contact us</span>
+    <a href="tel:+27561100070">+27 56 110 0070</a>
+    <a href="tel:+27825277602">+27 82 527 7602</a>
+    <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a>
+    <span class="lbl" style="margin-left:auto">24-hour availability</span>
   </div>
 </div>
 
 <nav class="main">
   <div class="wrap">
-    <a class="logo" href="index.html">
-      <span class="mark">S</span>
-      <span>SHOGUN<small>SPECIALIST MINING CONSTRUCTION &amp; ENGINEERING</small></span>
+    <a class="brand" href="index.html">
+      <img src="https://shogun.co.za/wp-content/uploads/2023/01/Shogun-Final-Logo-resize-web.png" alt="Shogun Construction logo">
+      <span class="bt"><b>SHOGUN CONSTRUCTION</b><small>Specialist Mining Construction &amp; Engineering</small></span>
     </a>
-    <button class="burger" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <button class="burger" onclick="document.getElementById('nl').classList.toggle('open')">MENU</button>
     <div class="navlinks" id="nl">
       <a href="index.html">Home</a>
       <a href="index.html#history">History</a>
@@ -136,15 +170,16 @@ footer a{color:var(--amber)}
   <div class="wrap">
     <div class="kicker">Installation &amp; Maintenance — Full Circle Solutions</div>
     <h1>Services &amp; <span>Products</span></h1>
-    <p class="lead">Explore our specialist capability in full detail — and take our machines for a spin.
-       Every 3D model below is fully interactive: <strong style="color:#fff">drag to rotate, scroll to zoom</strong>,
-       and click the plant screens to start a guided walk-through.</p>
+    <p class="lead">Explore our specialist capability in full detail — and take our machines apart.
+       Every 3D model below is fully interactive: <strong style="color:#fff">drag to rotate, zoom out to
+       disassemble the machine piece by piece, zoom back in to reassemble it.</strong> Click the plant
+       screens to start a guided walk-through.</p>
     <div class="jump">
-      <a href="#mills">⚙️ Mills / Grinding</a>
-      <a href="#crushers">🪨 Crushers</a>
-      <a href="#winders">🏗️ Winders / Hoists</a>
-      <a href="#cement">🏭 Cement Plants</a>
-      <a href="#concentrator">🧪 Concentrator Plants</a>
+      <a href="#mills">Mills / Grinding</a>
+      <a href="#crushers">Crushers</a>
+      <a href="#winders">Winders / Hoists</a>
+      <a href="#cement">Cement Plants</a>
+      <a href="#concentrator">Concentrator Plants</a>
     </div>
   </div>
 </header>
@@ -157,15 +192,17 @@ footer a{color:var(--amber)}
     <div class="duo reveal">
       <div class="viewer" data-model="mill">
         <canvas></canvas>
-        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
-        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate &middot; Zoom out to take apart &middot; Zoom in to rebuild</span></div>
+        <div class="explode-meter"><div class="lab">Disassembly</div><div class="track"><div class="fillx"></div></div></div>
+        <div class="ctrls"><button data-act="auto" class="on">Auto-rotate</button><button data-act="explode">Take apart</button><button data-act="reset">Reset</button></div>
       </div>
       <div class="svc-info">
+        <div class="photo"><img src="https://shogun.co.za/wp-content/uploads/2023/02/Shogun-Construction-services-mills-grinders.jpg" alt="Shogun crews working on a grinding mill"></div>
         <h3>What we work on</h3>
         <p class="desc">Shogun works on all types of mills: wrap-around, single &amp; dual drive mills,
            shell supported, trunnion supported, SAG, FAG, Ball, Vertimills, rod mills, scrubbers and more.
-           The model shows a trunnion-supported grinding mill with girth gear and pinion drive — spin it around
-           and watch the shell turn just like on the plant.</p>
+           The model shows a trunnion-supported grinding mill — zoom out to lift the heads, trunnions,
+           girth gear and drive train off the shell, exactly the components our crews change out on site.</p>
         <h3>Services provided</h3>
         <div class="chips">
           <span class="chip">Mill installations</span><span class="chip">Mill refurbishment</span>
@@ -192,14 +229,17 @@ footer a{color:var(--amber)}
     <div class="duo reveal">
       <div class="viewer" data-model="crusher">
         <canvas></canvas>
-        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
-        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate &middot; Zoom out to take apart &middot; Zoom in to rebuild</span></div>
+        <div class="explode-meter"><div class="lab">Disassembly</div><div class="track"><div class="fillx"></div></div></div>
+        <div class="ctrls"><button data-act="auto" class="on">Auto-rotate</button><button data-act="explode">Take apart</button><button data-act="reset">Reset</button></div>
       </div>
       <div class="svc-info">
+        <div class="photo"><img src="https://shogun.co.za/wp-content/uploads/2023/02/Shogun-Construction-services-crushers.jpg" alt="Shogun crews working on a crusher"></div>
         <h3>What we work on</h3>
         <p class="desc">Shogun works on all types of crushers: primary gyratory crushers &amp; jaw crushers,
            secondary &amp; tertiary cone crushers, pebble crushers and gyros. The model shows a primary gyratory
-           crusher — watch the mantle gyrate inside the concaves, exactly the motion our crews maintain and align.</p>
+           crusher — zoom out and the spider, top shell and mantle assembly lift apart in the same sequence
+           our crews follow for concave and mantle liner changes.</p>
         <h3>Services provided</h3>
         <div class="chips">
           <span class="chip">Crusher installations</span><span class="chip">Crusher refurbishment</span>
@@ -226,14 +266,17 @@ footer a{color:var(--amber)}
     <div class="duo reveal">
       <div class="viewer" data-model="winder">
         <canvas></canvas>
-        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate · Scroll to zoom</span></div>
-        <div class="ctrls"><button data-act="auto" class="on">⟳ Auto-rotate</button><button data-act="reset">⌂ Reset view</button></div>
+        <div class="hud"><span class="tag3d">INTERACTIVE 3D</span><span class="hint">Drag to rotate &middot; Zoom out to take apart &middot; Zoom in to rebuild</span></div>
+        <div class="explode-meter"><div class="lab">Disassembly</div><div class="track"><div class="fillx"></div></div></div>
+        <div class="ctrls"><button data-act="auto" class="on">Auto-rotate</button><button data-act="explode">Take apart</button><button data-act="reset">Reset</button></div>
       </div>
       <div class="svc-info">
+        <div class="photo"><img src="https://shogun.co.za/wp-content/uploads/2023/02/Shogun-Construction-services-winders-hoist.jpg" alt="Shogun crews working on a mine winder"></div>
         <h3>What we work on</h3>
         <p class="desc">Where it all began in 1994. Shogun works on all types of winders: single drum, double drum,
            BMR winders, Koepe winders, winches, drum &amp; check winders on headgears — surface as well as underground.
-           The model shows a drum winder with headframe sheave and conveyance travelling the shaft.</p>
+           The model shows a drum winder with its headframe — zoom out to separate the drum, motor, brakes and
+           headframe steelwork, then zoom in to bring the hoist back together.</p>
         <h3>Services provided</h3>
         <div class="chips">
           <span class="chip">Winder installations</span><span class="chip">Winder refurbishment</span>
@@ -262,11 +305,11 @@ footer a{color:var(--amber)}
     <div class="walk reveal">
       <div class="walkscreen" data-walk="cement">
         <canvas></canvas>
-        <div class="walk-overlay"><div class="play">▶</div><div class="lbl">Start Cement Plant Walk-Through</div></div>
+        <div class="walk-overlay"><div class="play"></div><div class="lbl">Start Cement Plant Walk-Through</div></div>
         <div class="walkbar" style="display:none">
-          <button data-act="pause">⏸ Pause</button>
-          <button data-act="restart">↺ Restart</button>
-          <button data-act="free">🖱 Free look</button>
+          <button data-act="pause">Pause</button>
+          <button data-act="restart">Restart</button>
+          <button data-act="free">Free look</button>
           <div class="prog"><div class="p"></div></div>
         </div>
       </div>
@@ -300,11 +343,11 @@ footer a{color:var(--amber)}
     <div class="walk reveal">
       <div class="walkscreen" data-walk="concentrator">
         <canvas></canvas>
-        <div class="walk-overlay"><div class="play">▶</div><div class="lbl">Start Concentrator Plant Walk-Through</div></div>
+        <div class="walk-overlay"><div class="play"></div><div class="lbl">Start Concentrator Plant Walk-Through</div></div>
         <div class="walkbar" style="display:none">
-          <button data-act="pause">⏸ Pause</button>
-          <button data-act="restart">↺ Restart</button>
-          <button data-act="free">🖱 Free look</button>
+          <button data-act="pause">Pause</button>
+          <button data-act="restart">Restart</button>
+          <button data-act="free">Free look</button>
           <div class="prog"><div class="p"></div></div>
         </div>
       </div>
@@ -338,9 +381,9 @@ footer a{color:var(--amber)}
 
 <footer>
   <div class="wrap">
-    © SHOGUN CONSTRUCTION. All Rights Reserved. ·
-    <a href="tel:+27561100070">+27 56 110 0070</a> ·
-    <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a> ·
+    &copy; SHOGUN CONSTRUCTION. All Rights Reserved. &middot;
+    <a href="tel:+27561100070">+27 56 110 0070</a> &middot;
+    <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a> &middot;
     25 Riastuine Plot, Parys, Free State
   </div>
 </footer>
@@ -348,8 +391,22 @@ footer a{color:var(--amber)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 /* ========================================================================
-   SHOGUN 3D — procedural models, orbit viewers & plant walk-throughs
+   SHOGUN 3D — orbit viewers with zoom-driven exploded views ("take apart
+   like Tony Stark"), plus plant walk-throughs.
    ======================================================================== */
+/* Guard: if the Three.js CDN failed to load (offline, blocked), degrade
+   gracefully instead of throwing — show a notice in each 3D screen. */
+if (typeof THREE === 'undefined') {
+  document.querySelectorAll('.viewer,.walkscreen').forEach(el=>{
+    const msg=document.createElement('div');
+    msg.style.cssText='position:absolute;inset:0;display:grid;place-items:center;color:#cdd7e0;font-size:.85rem;letter-spacing:1px;text-align:center;padding:20px;z-index:6;background:rgba(13,18,24,.75)';
+    msg.textContent='3D viewer unavailable — check your internet connection and reload.';
+    el.appendChild(msg);
+    const ov=el.querySelector('.walk-overlay'); if(ov) ov.style.display='none';
+  });
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('on'));
+  throw new Error('THREE not loaded');
+}
 const T = THREE;
 
 /* ---------- materials ---------- */
@@ -357,7 +414,7 @@ function mat(color, rough, metal){ return new T.MeshStandardMaterial({color, rou
 const M = {
   steel : ()=>mat(0x9aa7b4,.45,.75),
   dark  : ()=>mat(0x3a4552,.6,.6),
-  amber : ()=>mat(0xf5a623,.4,.5),
+  red   : ()=>mat(0xb02323,.45,.5),
   shell : ()=>mat(0x6b7c8d,.5,.7),
   rust  : ()=>mat(0x8a6a4a,.7,.4),
   concrete:()=>mat(0x8d9299,.9,.05),
@@ -365,15 +422,15 @@ const M = {
   glass : ()=>new T.MeshStandardMaterial({color:0xbfd8e8,roughness:.15,metalness:.3,transparent:true,opacity:.55}),
   froth : ()=>mat(0xd8dee4,.9,.05),
   slurry: ()=>mat(0x5b6f80,.8,.1),
-  red   : ()=>mat(0xb8452e,.6,.4),
+  motor : ()=>mat(0x7d2020,.6,.4),
   green : ()=>mat(0x3f7a5a,.7,.3),
 };
 
 /* ---------- scene bootstrap ---------- */
 function makeScene(){
   const scene = new T.Scene();
-  scene.fog = new T.Fog(0x10161d, 60, 220);
-  const hemi = new T.HemisphereLight(0xcfe4ff, 0x2b241a, .85); scene.add(hemi);
+  scene.fog = new T.Fog(0x12181f, 60, 240);
+  scene.add(new T.HemisphereLight(0xcfe4ff, 0x2b241a, .85));
   const sun = new T.DirectionalLight(0xfff1d6, 1.1); sun.position.set(30,50,20); scene.add(sun);
   const fill = new T.DirectionalLight(0x88aaff, .32); fill.position.set(-25,20,-30); scene.add(fill);
   return scene;
@@ -384,52 +441,96 @@ function makeRenderer(canvas){
   return r;
 }
 
-/* ---------- generic orbit viewer ---------- */
+/* ---------- part registry helpers (for exploded views) ---------- */
+/* Each part: {obj, dir:Vector3 (displacement at full explode), base:Vector3} */
+function makeRegistry(){
+  const parts=[], hide=[];
+  return {
+    parts, hide,
+    reg(obj, dx,dy,dz){ parts.push({obj, dir:new T.Vector3(dx,dy,dz), base:null}); return obj; },
+    hideOnExplode(obj){ hide.push(obj); return obj; },
+    freeze(){ parts.forEach(p=>p.base=p.obj.position.clone()); }
+  };
+}
+
+/* ---------- generic orbit viewer with zoom-explode ---------- */
 function orbitViewer(container, buildFn, opts){
   const canvas = container.querySelector('canvas');
   const scene = makeScene();
-  const built = buildFn(scene);                 // returns {update(t,dt)}
-  const cam = new T.PerspectiveCamera(45, 2, .1, 500);
-  const o = Object.assign({dist:30, minD:10, maxD:80, phi:1.15, theta:.6, targetY:5}, opts||{});
-  let theta=o.theta, phi=o.phi, dist=o.dist, auto=true;
+  const built = buildFn(scene);                 // {update, registry}
+  const R = built.registry; R.freeze();
+  const cam = new T.PerspectiveCamera(45, 2, .1, 600);
+  const o = Object.assign({dist:40, minD:16, maxD:110, phi:1.12, theta:.6, targetY:6, explodeStart:null}, opts||{});
+  if(o.explodeStart===null) o.explodeStart = o.dist + 8;
+  let theta=o.theta, phi=o.phi, dist=o.dist, auto=true, explode=0;
   const target = new T.Vector3(0,o.targetY,0);
-  function place(){
-    cam.position.set(
-      target.x + dist*Math.sin(phi)*Math.sin(theta),
-      target.y + dist*Math.cos(phi),
-      target.z + dist*Math.sin(phi)*Math.cos(theta));
-    cam.lookAt(target);
-  }
   const renderer = makeRenderer(canvas);
-  function resize(){
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix();
-  }
+  function resize(){ const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); }
   new ResizeObserver(resize).observe(canvas); resize();
 
-  /* pointer controls */
-  let drag=false,px=0,py=0;
-  canvas.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId);auto=false;syncAutoBtn();});
-  canvas.addEventListener('pointermove',e=>{if(!drag)return;
-    theta -= (e.clientX-px)*.008; phi -= (e.clientY-py)*.006;
-    phi=Math.max(.25,Math.min(1.45,phi)); px=e.clientX;py=e.clientY;});
-  canvas.addEventListener('pointerup',()=>drag=false);
-  canvas.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(o.minD,Math.min(o.maxD,dist+e.deltaY*.03));},{passive:false});
+  /* pointer controls: 1 finger / mouse drag rotates, 2-finger pinch zooms (drives explode) */
+  const pts=new Map(); let pinch0=0, pinchDist=0;
+  canvas.addEventListener('pointerdown',e=>{
+    canvas.setPointerCapture(e.pointerId);
+    pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pts.size===2){const a=[...pts.values()];pinch0=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);pinchDist=dist;}
+    auto=false;syncAuto();
+  });
+  canvas.addEventListener('pointermove',e=>{
+    const p=pts.get(e.pointerId); if(!p)return;
+    if(pts.size===1){
+      theta -= (e.clientX-p.x)*.008; phi -= (e.clientY-p.y)*.006;
+      phi=Math.max(.25,Math.min(1.45,phi));
+    }
+    p.x=e.clientX; p.y=e.clientY;
+    if(pts.size===2){
+      const a=[...pts.values()];
+      const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
+      if(d>4&&pinch0>4) dist=Math.max(o.minD,Math.min(o.maxD,pinchDist*pinch0/d));
+    }
+  });
+  const lift=e=>{pts.delete(e.pointerId);pinch0=0;};
+  canvas.addEventListener('pointerup',lift);
+  canvas.addEventListener('pointercancel',lift);
+  canvas.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(o.minD,Math.min(o.maxD,dist+e.deltaY*.045));},{passive:false});
 
-  /* buttons */
+  /* buttons + meter */
   const autoBtn = container.querySelector('[data-act="auto"]');
-  function syncAutoBtn(){ if(autoBtn) autoBtn.classList.toggle('on',auto); }
-  if(autoBtn) autoBtn.addEventListener('click',()=>{auto=!auto;syncAutoBtn();});
+  const explBtn = container.querySelector('[data-act="explode"]');
+  const meter = container.querySelector('.explode-meter .fillx');
+  function syncAuto(){ if(autoBtn) autoBtn.classList.toggle('on',auto); }
+  if(autoBtn) autoBtn.addEventListener('click',()=>{auto=!auto;syncAuto();});
+  if(explBtn) explBtn.addEventListener('click',()=>{
+    const apart = dist < (o.explodeStart + (o.maxD-o.explodeStart)*.6);
+    dist = apart ? o.maxD : o.dist;
+  });
   const resetBtn = container.querySelector('[data-act="reset"]');
-  if(resetBtn) resetBtn.addEventListener('click',()=>{theta=o.theta;phi=o.phi;dist=o.dist;auto=true;syncAutoBtn();});
+  if(resetBtn) resetBtn.addEventListener('click',()=>{theta=o.theta;phi=o.phi;dist=o.dist;auto=true;syncAuto();});
 
   let last=performance.now();
   (function loop(now){
     requestAnimationFrame(loop);
     const dt=Math.min((now-last)/1000,.05); last=now;
     if(auto) theta += dt*.25;
-    if(built && built.update) built.update(now/1000,dt);
-    place(); renderer.render(scene,cam);
+    if(built.update) built.update(now/1000,dt);
+
+    /* zoom-driven explode factor with smoothing */
+    let te = (dist - o.explodeStart) / (o.maxD - o.explodeStart);
+    te = Math.max(0, Math.min(1, te));
+    te = te*te*(3-2*te);                       // smoothstep
+    explode += (te - explode) * Math.min(1, dt*5);
+    const e = explode < .002 ? 0 : explode;
+    R.parts.forEach(p=>{ p.obj.position.copy(p.base).addScaledVector(p.dir, e); });
+    R.hide.forEach(obj=>{ obj.visible = e < .12; });
+    if(explBtn) explBtn.textContent = e > .5 ? 'Assemble' : 'Take apart';
+    if(meter) meter.style.width = (e*100).toFixed(0)+'%';
+
+    cam.position.set(
+      target.x + dist*Math.sin(phi)*Math.sin(theta),
+      target.y + dist*Math.cos(phi),
+      target.z + dist*Math.sin(phi)*Math.cos(theta));
+    cam.lookAt(target);
+    renderer.render(scene,cam);
   })(last);
 }
 
@@ -437,8 +538,6 @@ function orbitViewer(container, buildFn, opts){
 function cyl(rt,rb,h,seg,material){ return new T.Mesh(new T.CylinderGeometry(rt,rb,h,seg||28), material); }
 function box(w,h,d,material){ return new T.Mesh(new T.BoxGeometry(w,h,d), material); }
 function torus(r,t,material,seg){ return new T.Mesh(new T.TorusGeometry(r,t,14,seg||44), material); }
-function group(...meshes){ const g=new T.Group(); meshes.forEach(m=>g.add(m)); return g; }
-function ring(r, t, n, mkFn){ const g=new T.Group(); for(let i=0;i<n;i++){const m=mkFn(); const a=i/n*Math.PI*2; m.position.set(Math.cos(a)*r,0,Math.sin(a)*r); m.lookAt(0,0,0); g.add(m);} return g; }
 function base(scene, size){
   const g = new T.Mesh(new T.CylinderGeometry(size,size*1.06,1.2,48), M.ground());
   g.position.y=-.6; scene.add(g);
@@ -447,84 +546,82 @@ function base(scene, size){
 }
 
 /* =====================================================================
-   MODEL 1 — GRINDING MILL (trunnion supported, girth gear + pinion)
+   MODEL 1 — GRINDING MILL (explodes: heads, trunnions, gear, drive)
    ===================================================================== */
 function buildMill(scene){
   base(scene, 26);
+  const R = makeRegistry();
   const g = new T.Group(); scene.add(g);
 
-  // rotating assembly
+  // rotating assembly (core shell stays; parts explode along the axis)
   const rot = new T.Group(); rot.position.y=7; g.add(rot);
+  R.reg(rot, 0, 3, 0);
   const shell = cyl(6,6,16,36,M.shell()); shell.rotation.z=Math.PI/2; rot.add(shell);
-  // shell ribs
-  for(let i=-3;i<=3;i++){ const rib=torus(6.15,.22,M.dark()); rib.rotation.y=Math.PI/2; rib.position.x=i*2.2; rot.add(rib); }
-  // heads (cones)
-  const headL=cyl(3.2,6,2.6,36,M.steel()); headL.rotation.z=Math.PI/2; headL.position.x=-9.3; rot.add(headL);
-  const headR=cyl(6,3.2,2.6,36,M.steel()); headR.rotation.z=Math.PI/2; headR.position.x=9.3; rot.add(headR);
-  // trunnions
-  const trL=cyl(2.6,2.6,3.4,28,M.steel()); trL.rotation.z=Math.PI/2; trL.position.x=-12.3; rot.add(trL);
-  const trR=cyl(2.6,2.6,3.4,28,M.steel()); trR.rotation.z=Math.PI/2; trR.position.x=12.3; rot.add(trR);
-  // girth gear with teeth
-  const gear=torus(7,.55,M.amber()); gear.rotation.y=Math.PI/2; gear.position.x=6.5; rot.add(gear);
-  const teeth=ring(7.55,.3,40,()=>box(.55,.6,.9,M.amber())); teeth.rotation.z=Math.PI/2; teeth.rotation.y=0; teeth.position.x=6.5;
-  teeth.rotation.set(0,0,Math.PI/2); rot.add(teeth);
+  for(let i=-3;i<=3;i++){ const rib=torus(6.15,.22,M.dark()); rib.rotation.y=Math.PI/2; rib.position.x=i*2.2; rot.add(rib);
+    R.reg(rib, i*1.6, 0, 0); }
+  const headL=cyl(3.2,6,2.6,36,M.steel()); headL.rotation.z=Math.PI/2; headL.position.x=-9.3; rot.add(headL); R.reg(headL,-7,0,0);
+  const headR=cyl(6,3.2,2.6,36,M.steel()); headR.rotation.z=Math.PI/2; headR.position.x=9.3; rot.add(headR); R.reg(headR,7,0,0);
+  const trL=cyl(2.6,2.6,3.4,28,M.steel()); trL.rotation.z=Math.PI/2; trL.position.x=-12.3; rot.add(trL); R.reg(trL,-12,0,0);
+  const trR=cyl(2.6,2.6,3.4,28,M.steel()); trR.rotation.z=Math.PI/2; trR.position.x=12.3; rot.add(trR); R.reg(trR,12,0,0);
+  const gear=torus(7,.55,M.red()); gear.rotation.y=Math.PI/2; gear.position.x=6.5; rot.add(gear); R.reg(gear,4.5,0,0);
+  // gear teeth ring
+  const teeth=new T.Group();
+  for(let i=0;i<40;i++){ const a=i/40*Math.PI*2; const t=box(.55,.6,.9,M.red());
+    t.position.set(0, Math.cos(a)*7.55, Math.sin(a)*7.55); t.lookAt(0,0,0); teeth.add(t); }
+  teeth.position.x=6.5; rot.add(teeth); R.reg(teeth,4.5,0,0);
 
-  // static: bearing pedestals
-  [[-12.3],[12.3]].forEach(([x])=>{
-    const ped=box(4.2,5.4,6.4,M.concrete()); ped.position.set(x,2.7,0); g.add(ped);
-    const cap=cyl(3.1,3.1,4,28,M.dark()); cap.rotation.z=Math.PI/2; cap.position.set(x,7,0); g.add(cap);
+  // static: bearing pedestals + caps
+  [[-12.3,-1],[12.3,1]].forEach(([x,s])=>{
+    const ped=box(4.2,5.4,6.4,M.concrete()); ped.position.set(x,2.7,0); g.add(ped); R.reg(ped, s*5, -4, 0);
+    const cap=cyl(3.1,3.1,4,28,M.dark()); cap.rotation.z=Math.PI/2; cap.position.set(x,7,0); g.add(cap); R.reg(cap, s*8, 6, 0);
   });
   // pinion + motor
-  const pin=cyl(1.5,1.5,3,20,M.amber()); pin.rotation.z=Math.PI/2; pin.position.set(6.5,1.9,9.1); g.add(pin);
-  const mBase=box(9,1,4,M.concrete()); mBase.position.set(10.5,.5,9.1); g.add(mBase);
-  const motor=cyl(1.7,1.7,5,24,M.red()); motor.rotation.z=Math.PI/2; motor.position.set(11.5,2.1,9.1); g.add(motor);
-  const mbox=box(1.6,1.4,1.6,M.dark()); mbox.position.set(11.5,3.6,9.1); g.add(mbox);
+  const pin=cyl(1.5,1.5,3,20,M.red()); pin.rotation.z=Math.PI/2; pin.position.set(6.5,1.9,9.1); g.add(pin); R.reg(pin,0,2,7);
+  const mBase=box(9,1,4,M.concrete()); mBase.position.set(10.5,.5,9.1); g.add(mBase); R.reg(mBase,1,-3,8);
+  const motor=cyl(1.7,1.7,5,24,M.motor()); motor.rotation.z=Math.PI/2; motor.position.set(11.5,2.1,9.1); g.add(motor); R.reg(motor,3,1,11);
+  const mbox=box(1.6,1.4,1.6,M.dark()); mbox.position.set(11.5,3.6,9.1); g.add(mbox); R.reg(mbox,3,4,11);
   // feed chute
-  const chute=box(3.4,3,2.6,M.rust()); chute.position.set(-15.2,8.6,0); chute.rotation.z=.5; g.add(chute);
-  const feedLeg=box(.8,7,.8,M.dark()); feedLeg.position.set(-15.8,3.5,0); g.add(feedLeg);
+  const chute=box(3.4,3,2.6,M.rust()); chute.position.set(-15.2,8.6,0); chute.rotation.z=.5; g.add(chute); R.reg(chute,-7,5,0);
+  const feedLeg=box(.8,7,.8,M.dark()); feedLeg.position.set(-15.8,3.5,0); g.add(feedLeg); R.reg(feedLeg,-7,-2,0);
 
-  return { update(t,dt){ rot.rotation.x += dt*.65; pin.rotation.x -= dt*2.8; } };
+  return { registry:R, update(t,dt){ rot.rotation.x += dt*.65; pin.rotation.x -= dt*2.8; } };
 }
 
 /* =====================================================================
-   MODEL 2 — PRIMARY GYRATORY CRUSHER
+   MODEL 2 — PRIMARY GYRATORY CRUSHER (explodes vertically in service order)
    ===================================================================== */
 function buildCrusher(scene){
   base(scene, 24);
+  const R = makeRegistry();
   const g=new T.Group(); scene.add(g);
 
-  // bottom shell / drive station
-  const found=cyl(7.5,8.5,3,36,M.concrete()); found.position.y=1.5; g.add(found);
-  const bottom=cyl(5,6.5,5,36,M.shell()); bottom.position.y=5.5; g.add(bottom);
-  // countershaft + motor
-  const cs=cyl(.9,.9,7,18,M.steel()); cs.rotation.z=Math.PI/2; cs.position.set(7.2,4.6,0); g.add(cs);
-  const csm=cyl(1.5,1.5,3.4,22,M.red()); csm.rotation.z=Math.PI/2; csm.position.set(11.2,4.6,0); g.add(csm);
-  // top shell (concaves) – flared
-  const top=cyl(7.6,5,6,36,M.rust()); top.position.y=11; g.add(top);
-  const rim=torus(7.7,.5,M.dark()); rim.rotation.x=Math.PI/2; rim.position.y=14; g.add(rim);
-  // spider
-  const spider=new T.Group(); spider.position.y=14.6; g.add(spider);
+  const found=cyl(7.5,8.5,3,36,M.concrete()); found.position.y=1.5; g.add(found); R.reg(found,0,-3,0);
+  const bottom=cyl(5,6.5,5,36,M.shell()); bottom.position.y=5.5; g.add(bottom); R.reg(bottom,0,-1,0);
+  const cs=cyl(.9,.9,7,18,M.steel()); cs.rotation.z=Math.PI/2; cs.position.set(7.2,4.6,0); g.add(cs); R.reg(cs,5,0,0);
+  const csm=cyl(1.5,1.5,3.4,22,M.motor()); csm.rotation.z=Math.PI/2; csm.position.set(11.2,4.6,0); g.add(csm); R.reg(csm,10,0,0);
+  const top=cyl(7.6,5,6,36,M.rust()); top.position.y=11; g.add(top); R.reg(top,0,6,0);
+  const rim=torus(7.7,.5,M.dark()); rim.rotation.x=Math.PI/2; rim.position.y=14; g.add(rim); R.reg(rim,0,10,0);
+  const spider=new T.Group(); spider.position.y=14.6; g.add(spider); R.reg(spider,0,15,0);
   for(let i=0;i<3;i++){ const arm=box(15,.9,1.4,M.steel()); arm.rotation.y=i*Math.PI/3; spider.add(arm); }
   const hub=cyl(1.9,1.9,2.4,20,M.dark()); hub.position.y=.4; spider.add(hub);
 
-  // gyrating mantle assembly (main shaft + cone)
-  const gyr=new T.Group(); gyr.position.y=9.2; g.add(gyr);
+  // gyrating mantle assembly rises out through the spider when exploded
+  const gyr=new T.Group(); gyr.position.y=9.2; g.add(gyr); R.reg(gyr,0,22,0);
   const shaft=cyl(.9,.9,11,18,M.steel()); shaft.position.y=3.2; gyr.add(shaft);
-  const mantle=cyl(1.6,4.6,6.4,36,M.amber()); mantle.position.y=1.6; gyr.add(mantle);
+  const mantle=cyl(1.6,4.6,6.4,36,M.red()); mantle.position.y=1.6; gyr.add(mantle);
   const nut=cyl(1.2,1.6,1.2,18,M.dark()); nut.position.y=5.3; gyr.add(nut);
 
-  // rock pocket ring
-  const rocks=new T.Group(); rocks.position.y=13.6; g.add(rocks);
+  const rocks=new T.Group(); rocks.position.y=13.6; g.add(rocks); R.hideOnExplode(rocks);
   for(let i=0;i<14;i++){ const a=i/14*Math.PI*2, r=6.1+Math.random()*.8;
     const rock=new T.Mesh(new T.DodecahedronGeometry(.55+Math.random()*.5), M.dark());
     rock.position.set(Math.cos(a)*r,Math.random()*.5,Math.sin(a)*r); rocks.add(rock); }
 
-  // service platform
-  const plat=torus(9.4,.28,M.steel()); plat.rotation.x=Math.PI/2; plat.position.y=9.6; g.add(plat);
+  const plat=torus(9.4,.28,M.steel()); plat.rotation.x=Math.PI/2; plat.position.y=9.6; g.add(plat); R.reg(plat,0,2,0);
+  const legs=new T.Group(); g.add(legs); R.reg(legs,0,-6,0);
   for(let i=0;i<6;i++){ const a=i/6*Math.PI*2; const leg=box(.4,9.6,.4,M.dark());
-    leg.position.set(Math.cos(a)*9.4,4.8,Math.sin(a)*9.4); g.add(leg); }
+    leg.position.set(Math.cos(a)*9.4,4.8,Math.sin(a)*9.4); legs.add(leg); }
 
-  return { update(t,dt){
+  return { registry:R, update(t,dt){
     const w=t*3.1, tilt=.055;
     gyr.rotation.set(Math.sin(w)*tilt, gyr.rotation.y+dt*.8, Math.cos(w)*tilt);
     csm.rotation.x -= dt*3;
@@ -532,63 +629,66 @@ function buildCrusher(scene){
 }
 
 /* =====================================================================
-   MODEL 3 — MINE WINDER / HOIST (drum winder + headframe)
+   MODEL 3 — MINE WINDER / HOIST (drum, motor, brakes & headframe separate)
    ===================================================================== */
 function buildWinder(scene){
   base(scene, 30);
+  const R = makeRegistry();
   const g=new T.Group(); g.position.x=-4; scene.add(g);
 
-  // winder house floor
-  const slab=box(20,1,14,M.concrete()); slab.position.set(-6,.5,0); g.add(slab);
-  // drum
-  const drum=new T.Group(); drum.position.set(-8,5.4,0); g.add(drum);
+  const slab=box(20,1,14,M.concrete()); slab.position.set(-6,.5,0); g.add(slab); R.reg(slab,0,-5,0);
+  // drum assembly
+  const drum=new T.Group(); drum.position.set(-8,5.4,0); g.add(drum); R.reg(drum,0,7,0);
   const dr=cyl(3.6,3.6,7.5,36,M.shell()); dr.rotation.x=Math.PI/2; dr.rotation.z=Math.PI/2; drum.add(dr);
-  const cheekL=cyl(4.6,4.6,.6,36,M.amber()); cheekL.rotation.z=Math.PI/2; cheekL.position.x=-4; drum.add(cheekL);
-  const cheekR=cyl(4.6,4.6,.6,36,M.amber()); cheekR.rotation.z=Math.PI/2; cheekR.position.x=4; drum.add(cheekR);
-  for(let i=-3;i<=3;i++){ const coil=torus(3.68,.14,M.dark()); coil.rotation.y=Math.PI/2; coil.position.x=i*.9; drum.add(coil); }
+  const cheekL=cyl(4.6,4.6,.6,36,M.red()); cheekL.rotation.z=Math.PI/2; cheekL.position.x=-4; drum.add(cheekL); R.reg(cheekL,-4,0,0);
+  const cheekR=cyl(4.6,4.6,.6,36,M.red()); cheekR.rotation.z=Math.PI/2; cheekR.position.x=4; drum.add(cheekR); R.reg(cheekR,4,0,0);
+  for(let i=-3;i<=3;i++){ const coil=torus(3.68,.14,M.dark()); coil.rotation.y=Math.PI/2; coil.position.x=i*.9; drum.add(coil);
+    R.reg(coil, i*1.4, 0, 0); }
   // bearing stands
-  [[-12.6],[-3.4]].forEach(([x])=>{ const st=box(2.6,4.8,4.6,M.concrete()); st.position.set(x,2.4,0); g.add(st); });
+  const stL=box(2.6,4.8,4.6,M.concrete()); stL.position.set(-12.6,2.4,0); g.add(stL); R.reg(stL,-4,-2,0);
+  const stR=box(2.6,4.8,4.6,M.concrete()); stR.position.set(-3.4,2.4,0); g.add(stR); R.reg(stR,4,-2,0);
   // motor
-  const wm=cyl(2.3,2.3,4.6,26,M.red()); wm.rotation.z=Math.PI/2; wm.position.set(-16.5,5.4,0); g.add(wm);
+  const wm=cyl(2.3,2.3,4.6,26,M.motor()); wm.rotation.z=Math.PI/2; wm.position.set(-16.5,5.4,0); g.add(wm); R.reg(wm,-8,2,0);
   // brake calipers
-  [[-1,-1],[1,1]].forEach(([s])=>{ const br=box(1,3.2,1.4,M.dark()); br.position.set(-8+s*4.9,7.6,3.2); g.add(br); });
+  const brL=box(1,3.2,1.4,M.dark()); brL.position.set(-12.9,7.6,3.2); g.add(brL); R.reg(brL,-2,3,5);
+  const brR=box(1,3.2,1.4,M.dark()); brR.position.set(-3.1,7.6,3.2); g.add(brR); R.reg(brR,2,3,5);
   // control cab
-  const cab=box(4.6,3.4,4,M.dark()); cab.position.set(-6,2.7,-6.6); g.add(cab);
-  const win=box(4.2,1.4,.2,M.glass()); win.position.set(-6,3.4,-4.55); g.add(win);
+  const cab=box(4.6,3.4,4,M.dark()); cab.position.set(-6,2.7,-6.6); g.add(cab); R.reg(cab,0,0,-6);
+  const win=box(4.2,1.4,.2,M.glass()); win.position.set(-6,3.4,-4.55); g.add(win); R.reg(win,0,0,-6);
 
   // headframe
   const hf=new T.Group(); hf.position.set(9,0,0); g.add(hf);
-  const legAngle=.16;
   for(const [dx,dz] of [[-2.4,-2.4],[2.4,-2.4],[-2.4,2.4],[2.4,2.4]]){
-    const leg=box(.8,22,.8,M.steel()); leg.position.set(dx*.7,11,dz*.7); leg.rotation.z=dx>0?-legAngle*.4:legAngle*.4; hf.add(leg);
+    const leg=box(.8,22,.8,M.steel()); leg.position.set(dx*.7,11,dz*.7);
+    leg.rotation.z=dx>0?-.064:.064; hf.add(leg);
+    R.reg(leg, dx*1.6, 1, dz*1.6);
   }
-  // back legs (inclined toward winder)
-  for(const dz of [-2.2,2.2]){ const bl=box(.7,24,.7,M.amber()); bl.position.set(-4.5,10.6,dz*.7); bl.rotation.z=.42; hf.add(bl); }
-  // cross-bracing
-  for(let y=4;y<=18;y+=4.6){ const cb=box(4.6,.5,.5,M.dark()); cb.position.set(0,y,1.75); hf.add(cb);
-    const cb2=cb.clone(); cb2.position.z=-1.75; hf.add(cb2); }
-  // sheave wheel
-  const sheave=torus(2.6,.35,M.amber()); sheave.position.set(0,22.6,0); hf.add(sheave);
-  const spokes=new T.Group(); spokes.position.copy(sheave.position);
-  for(let i=0;i<4;i++){ const sp=box(.3,4.6,.3,M.dark()); sp.rotation.z=i*Math.PI/4; spokes.add(sp); } hf.add(spokes);
-  // shaft collar
-  const collar=box(7,1.2,7,M.concrete()); collar.position.set(9,.6,0); g.add(collar);
-  const mouth=box(3.6,.7,3.6,M.dark()); mouth.position.set(9,1.3,0); g.add(mouth);
+  for(const dz of [-2.2,2.2]){ const bl=box(.7,24,.7,M.red()); bl.position.set(-4.5,10.6,dz*.7); bl.rotation.z=.42; hf.add(bl);
+    R.reg(bl,-4,1,dz*1.8); }
+  for(let y=4;y<=18;y+=4.6){
+    const cb=box(4.6,.5,.5,M.dark()); cb.position.set(0,y,1.75); hf.add(cb); R.reg(cb,0,(y-10)*.4,4);
+    const cb2=box(4.6,.5,.5,M.dark()); cb2.position.set(0,y,-1.75); hf.add(cb2); R.reg(cb2,0,(y-10)*.4,-4);
+  }
+  const sheave=torus(2.6,.35,M.red()); sheave.position.set(0,22.6,0); hf.add(sheave); R.reg(sheave,0,7,0);
+  const spokes=new T.Group(); spokes.position.set(0,22.6,0);
+  for(let i=0;i<4;i++){ const sp=box(.3,4.6,.3,M.dark()); sp.rotation.z=i*Math.PI/4; spokes.add(sp); }
+  hf.add(spokes); R.reg(spokes,0,7,0);
+  const collar=box(7,1.2,7,M.concrete()); collar.position.set(9,.6,0); g.add(collar); R.reg(collar,3,-4,0);
+  const mouth=box(3.6,.7,3.6,M.dark()); mouth.position.set(9,1.3,0); g.add(mouth); R.reg(mouth,3,-2.5,0);
 
-  // ropes: drum -> sheave -> conveyance
+  // ropes + skip (hidden while exploded)
   const ropeMat=new T.LineBasicMaterial({color:0xd9e2ea});
-  const ropeGeo=new T.BufferGeometry().setFromPoints([new T.Vector3(-8,8.9,0), new T.Vector3(9,22.6+2.6,0)]);
-  g.add(new T.Line(ropeGeo,ropeMat));
-  const rope2=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(9+2.6,22.6,0), new T.Vector3(11.6,3,0)]),ropeMat);
-  g.add(rope2);
-  // conveyance (skip) travelling
-  const skip=box(1.7,3.2,1.7,M.amber()); skip.position.set(11.6,6,0); g.add(skip);
+  const rope1=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(-8,8.9,0), new T.Vector3(9,25.2,0)]),ropeMat);
+  g.add(rope1); R.hideOnExplode(rope1);
+  const rope2=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(11.6,22.6,0), new T.Vector3(11.6,3,0)]),ropeMat);
+  g.add(rope2); R.hideOnExplode(rope2);
+  const skip=box(1.7,3.2,1.7,M.red()); skip.position.set(11.6,6,0); g.add(skip); R.hideOnExplode(skip);
 
-  return { update(t,dt){
+  return { registry:R, update(t,dt){
     drum.rotation.x += dt*1.2; sheave.rotation.z += dt*1.5; spokes.rotation.z += dt*1.5;
-    const y = 4.5 + (Math.sin(t*.45)+1)*0.5*14;      // 4.5 .. 18.5
+    const y = 4.5 + (Math.sin(t*.45)+1)*0.5*14;
     skip.position.y=y;
-    rope2.geometry.setFromPoints([new T.Vector3(9+2.6,22.6,0), new T.Vector3(11.6,y+1.6,0)]);
+    if(skip.visible) rope2.geometry.setFromPoints([new T.Vector3(11.6,22.6,0), new T.Vector3(11.6,y+1.6,0)]);
   }};
 }
 
@@ -596,64 +696,52 @@ function buildWinder(scene){
    WALK SCENE A — CEMENT PLANT
    ===================================================================== */
 function buildCementPlant(scene){
-  scene.fog=new T.Fog(0x10161d,80,340);
+  scene.fog=new T.Fog(0x12181f,80,340);
   const g=new T.Group(); scene.add(g);
   const ground=new T.Mesh(new T.PlaneGeometry(320,320), M.ground()); ground.rotation.x=-Math.PI/2; g.add(ground);
   const grid=new T.GridHelper(320,40,0x374554,0x2b3641); grid.position.y=.03; g.add(grid);
 
-  // ---- preheater tower ----
   const tower=new T.Group(); tower.position.set(-40,0,0); g.add(tower);
   for(let i=0;i<5;i++){ const fl=box(16,7,16,i%2?M.concrete():M.dark()); fl.position.y=3.5+i*8; tower.add(fl);
     const cycl=cyl(2.6,1,6,20,M.rust()); cycl.position.set(9.5,6+i*8,(i%2?5:-5)); tower.add(cycl); }
-  const twTop=box(17,2,17,M.amber()); twTop.position.y=42; tower.add(twTop);
-  // downcomer duct
+  const twTop=box(17,2,17,M.red()); twTop.position.y=42; tower.add(twTop);
   const duct=cyl(2.2,2.2,40,16,M.steel()); duct.position.set(-10.5,21,0); tower.add(duct);
 
-  // ---- rotary kiln (inclined) ----
   const kiln=new T.Group(); kiln.position.set(-28,10.5,0); kiln.rotation.z=-.06; g.add(kiln);
   const kshell=cyl(4,4,58,30,M.rust()); kshell.rotation.z=Math.PI/2; kshell.position.x=29; kiln.add(kshell);
   const kRot=new T.Group(); kiln.add(kRot);
   for(let i=0;i<3;i++){ const tyre=torus(4.6,.7,M.steel()); tyre.rotation.y=Math.PI/2; tyre.position.x=8+i*20; kRot.add(tyre); }
-  const kGear=torus(4.9,.6,M.amber()); kGear.rotation.y=Math.PI/2; kGear.position.x=44; kRot.add(kGear);
-  // piers & rollers
-  for(let i=0;i<3;i++){ const pier=box(7,8.4,10,M.concrete()); pier.position.set(-20+8+i*20,4.2,0); g.add(pier);
-    for(const dz of [-2.6,2.6]){ const roll=cyl(1.5,1.5,3,16,M.dark()); roll.rotation.x=Math.PI/2;
-      roll.rotation.z=Math.PI/2; roll.position.set(-20+8+i*20,8.8,dz); g.add(roll); } }
+  const kGear=torus(4.9,.6,M.red()); kGear.rotation.y=Math.PI/2; kGear.position.x=44; kRot.add(kGear);
+  for(let i=0;i<3;i++){ const pier=box(7,8.4,10,M.concrete()); pier.position.set(-12+i*20,4.2,0); g.add(pier);
+    for(const dz of [-2.6,2.6]){ const roll=cyl(1.5,1.5,3,16,M.dark());
+      roll.rotation.z=Math.PI/2; roll.position.set(-12+i*20,8.8,dz); g.add(roll); } }
 
-  // ---- burner / kiln hood + clinker cooler ----
   const hood=box(9,10,9,M.dark()); hood.position.set(32,5,0); g.add(hood);
   const cooler=box(26,5,10,M.steel()); cooler.position.set(46,2.5,6); cooler.rotation.y=-.25; g.add(cooler);
   const stack2=cyl(1.6,2.2,26,18,M.concrete()); stack2.position.set(38,13,-8); g.add(stack2);
 
-  // ---- raw mill building ----
   const millB=box(20,14,16,M.dark()); millB.position.set(-70,7,-20); g.add(millB);
-  const millRoof=box(21,1,17,M.amber()); millRoof.position.set(-70,14.5,-20); g.add(millRoof);
+  const millRoof=box(21,1,17,M.red()); millRoof.position.set(-70,14.5,-20); g.add(millRoof);
 
-  // ---- silos ----
-  for(let i=0;i<3;i++){ const silo=cyl(6,6,26,28,M.concrete()); silo.position.set(60+i*1,13,-30-i*14); g.add(silo);
-    const cone=cyl(0.5,6,4,28,M.dark()); cone.position.set(60+i*1,28,-30-i*14); g.add(cone); }
+  for(let i=0;i<3;i++){ const silo=cyl(6,6,26,28,M.concrete()); silo.position.set(60,13,-30-i*14); g.add(silo);
+    const cone=cyl(0.5,6,4,28,M.dark()); cone.position.set(60,28,-30-i*14); g.add(cone); }
 
-  // ---- main stack ----
   const stack=cyl(2,3.4,44,20,M.concrete()); stack.position.set(-52,22,22); g.add(stack);
   const stripe=cyl(2.12,2.5,4,20,M.red()); stripe.position.set(-52,40,22); g.add(stripe);
-  // smoke puffs
   const puffs=[]; for(let i=0;i<6;i++){ const p=new T.Mesh(new T.SphereGeometry(1.6,12,10), new T.MeshStandardMaterial({color:0xaab6c2,transparent:true,opacity:.35,roughness:1}));
     p.position.set(-52,45+i*3,22); puffs.push(p); g.add(p); }
 
-  // conveyor gallery tower->silos
   const conv=box(70,1.2,3.4,M.steel()); conv.position.set(20,16,-26); conv.rotation.y=.12; g.add(conv);
-  for(let i=0;i<6;i++){ const cl=box(.9,16,.9,M.dark()); cl.position.set(-10+i*12,8,-26-(-10+i*12)*-.12); g.add(cl); }
+  for(let i=0;i<6;i++){ const cl=box(.9,16,.9,M.dark()); cl.position.set(-10+i*12,8,-26+(-10+i*12)*.12); g.add(cl); }
 
-  // lights on tower
   const lamp=new T.PointLight(0xffc46b,.9,60); lamp.position.set(-40,44,0); g.add(lamp);
 
   return { update(t,dt){
     kRot.rotation.x += dt*.5; kshell.rotation.x += dt*.5;
-    puffs.forEach((p,i)=>{ p.position.y += dt*2.2; p.material.opacity -= dt*.06;
+    puffs.forEach(p=>{ p.position.y += dt*2.2; p.material.opacity -= dt*.06;
       if(p.position.y>66){p.position.y=45;p.material.opacity=.35;} });
   }};
 }
-/* camera path for cement walk-through */
 const cementPath = new T.CatmullRomCurve3([
   new T.Vector3(90,9,70), new T.Vector3(55,7,40), new T.Vector3(46,6,14),
   new T.Vector3(20,8,10), new T.Vector3(-6,9,12), new T.Vector3(-26,12,16),
@@ -673,22 +761,20 @@ const cementLook = new T.CatmullRomCurve3([
    WALK SCENE B — CONCENTRATOR PLANT
    ===================================================================== */
 function buildConcentrator(scene){
-  scene.fog=new T.Fog(0x10161d,80,340);
+  scene.fog=new T.Fog(0x12181f,80,340);
   const g=new T.Group(); scene.add(g);
   const ground=new T.Mesh(new T.PlaneGeometry(320,320), M.ground()); ground.rotation.x=-Math.PI/2; g.add(ground);
   const grid=new T.GridHelper(320,40,0x374554,0x2b3641); grid.position.y=.03; g.add(grid);
 
-  // ---- SAG mill ----
   const millG=new T.Group(); millG.position.set(-55,0,-10); g.add(millG);
   [[-8],[8]].forEach(([x])=>{ const ped=box(5,6,7,M.concrete()); ped.position.set(x,3,0); millG.add(ped); });
   const mRot=new T.Group(); mRot.position.y=8; millG.add(mRot);
   const mShell=cyl(5.5,5.5,12,32,M.shell()); mShell.rotation.z=Math.PI/2; mRot.add(mShell);
-  const mGear=torus(6.3,.6,M.amber()); mGear.rotation.y=Math.PI/2; mGear.position.x=4.5; mRot.add(mGear);
+  const mGear=torus(6.3,.6,M.red()); mGear.rotation.y=Math.PI/2; mGear.position.x=4.5; mRot.add(mGear);
   for(const x of [-7.5,7.5]){ const tr=cyl(2.4,2.4,3,22,M.steel()); tr.rotation.z=Math.PI/2; tr.position.set(x,8,0); millG.add(tr); }
-  const millHouseRoof=box(26,1,20,M.amber()); millHouseRoof.position.set(0,17,0); millG.add(millHouseRoof);
+  const millHouseRoof=box(26,1,20,M.red()); millHouseRoof.position.set(0,17,0); millG.add(millHouseRoof);
   for(const [dx,dz] of [[-12,-9],[12,-9],[-12,9],[12,9]]){ const c=box(1,17,1,M.dark()); c.position.set(dx,8.5,dz); millG.add(c); }
 
-  // ---- cyclone cluster ----
   const cyc=new T.Group(); cyc.position.set(-30,0,-32); g.add(cyc);
   const cycPlat=box(14,1,14,M.steel()); cycPlat.position.y=12; cyc.add(cycPlat);
   for(const [dx,dz] of [[-4,-4],[4,-4],[-4,4],[4,4]]){
@@ -696,7 +782,6 @@ function buildConcentrator(scene){
     const cone=cyl(1.8,.4,5,16,M.green()); cone.position.set(dx,10.5,dz); cyc.add(cone); }
   for(const [dx,dz] of [[-6,-6],[6,-6],[-6,6],[6,6]]){ const l=box(.8,12,.8,M.dark()); l.position.set(dx,6,dz); cyc.add(l); }
 
-  // ---- flotation banks (two rows) ----
   const agitators=[];
   for(let row=0;row<2;row++){
     for(let i=0;i<5;i++){
@@ -704,7 +789,7 @@ function buildConcentrator(scene){
       const tank=cyl(5,4.4,7,24,row?M.green():M.slurry()); tank.position.y=3.5; cellG.add(tank);
       const froth=cyl(4.6,4.6,.7,24,M.froth()); froth.position.y=7.2; cellG.add(froth);
       const mast=cyl(.35,.35,6,10,M.steel()); mast.position.y=10; cellG.add(mast);
-      const motor=box(1.8,1.4,1.8,M.red()); motor.position.y=13.2; cellG.add(motor);
+      const motor=box(1.8,1.4,1.8,M.motor()); motor.position.y=13.2; cellG.add(motor);
       const agi=new T.Group(); agi.position.y=8.1; cellG.add(agi);
       for(let b=0;b<3;b++){ const blade=box(3.6,.2,.7,M.steel()); blade.rotation.y=b*Math.PI/3; agi.add(blade); }
       agitators.push(agi);
@@ -712,27 +797,24 @@ function buildConcentrator(scene){
     }
   }
 
-  // ---- thickener ----
   const th=new T.Group(); th.position.set(62,0,-16); g.add(th);
   const wall=new T.Mesh(new T.CylinderGeometry(22,22,5,48,1,true), M.concrete()); wall.position.y=2.5; wall.material.side=T.DoubleSide; th.add(wall);
   const water=cyl(21.6,21.6,.4,48,M.slurry()); water.position.y=4.6; th.add(water);
   const bridge=box(45,1,2.6,M.steel()); bridge.position.y=6.4; th.add(bridge);
-  const rail=box(45,.8,.2,M.amber()); rail.position.set(0,7.3,1.2); th.add(rail);
+  const rail=box(45,.8,.2,M.red()); rail.position.set(0,7.3,1.2); th.add(rail);
   const rake=new T.Group(); th.add(rake);
   const rArm=box(40,.5,1,M.dark()); rArm.position.y=1.6; rake.add(rArm);
   for(let i=-4;i<=4;i++){ if(!i)continue; const tooth=box(.3,1.2,.3,M.dark()); tooth.position.set(i*4.2,.9,0); rake.add(tooth); }
   const centerCol=cyl(1.2,1.2,7,16,M.steel()); centerCol.position.y=3.5; th.add(centerCol);
 
-  // ---- overland conveyor into mill ----
   const convG=new T.Group(); g.add(convG);
   const belt=box(80,.8,3,M.dark()); belt.position.set(-30,12,-52); belt.rotation.y=.35; convG.add(belt);
   for(let i=0;i<7;i++){ const x=-64+i*12; const leg=box(1,12,1,M.steel());
-    leg.position.set(x, 6, -52 - (x+30)*-.35); convG.add(leg); }
+    leg.position.set(x, 6, -52 + (x+30)*.35); convG.add(leg); }
   const chuteBox=box(5,6,5,M.rust()); chuteBox.position.set(-66,10,-38); convG.add(chuteBox);
 
-  // ---- reagent tanks ----
   for(let i=0;i<3;i++){ const tk=cyl(3.4,3.4,9,24,M.steel()); tk.position.set(28+i*9,4.5,44); g.add(tk);
-    const lid=cyl(3.5,3.5,.5,24,M.amber()); lid.position.set(28+i*9,9.2,44); g.add(lid); }
+    const lid=cyl(3.5,3.5,.5,24,M.red()); lid.position.set(28+i*9,9.2,44); g.add(lid); }
 
   const lamp=new T.PointLight(0x9fd0ff,.7,80); lamp.position.set(0,30,0); g.add(lamp);
 
@@ -772,28 +854,42 @@ function walkThrough(container, buildFn, path, look, duration){
   function resize(){ const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); }
   new ResizeObserver(resize).observe(canvas); resize();
 
-  let mode='idle';           // idle | play | pause | free
-  let u=0;                   // path progress 0..1
-  // free-look orbit state
+  let mode='idle', u=0;
   let theta=.9, phi=1.2, dist=120; const target=new T.Vector3(0,8,0);
-  let drag=false,px=0,py=0;
-  canvas.addEventListener('pointerdown',e=>{ if(mode!=='free')return; drag=true;px=e.clientX;py=e.clientY;canvas.setPointerCapture(e.pointerId); });
-  canvas.addEventListener('pointermove',e=>{ if(!drag)return;
-    theta-=(e.clientX-px)*.006; phi-=(e.clientY-py)*.005; phi=Math.max(.2,Math.min(1.45,phi)); px=e.clientX;py=e.clientY; });
-  canvas.addEventListener('pointerup',()=>drag=false);
+  const pts=new Map(); let pinch0=0, pinchDist=0;
+  canvas.addEventListener('pointerdown',e=>{ if(mode!=='free')return;
+    canvas.setPointerCapture(e.pointerId);
+    pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pts.size===2){const a=[...pts.values()];pinch0=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);pinchDist=dist;}
+  });
+  canvas.addEventListener('pointermove',e=>{ if(mode!=='free')return;
+    const p=pts.get(e.pointerId); if(!p)return;
+    if(pts.size===1){
+      theta-=(e.clientX-p.x)*.006; phi-=(e.clientY-p.y)*.005; phi=Math.max(.2,Math.min(1.45,phi));
+    }
+    p.x=e.clientX; p.y=e.clientY;
+    if(pts.size===2){
+      const a=[...pts.values()];
+      const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y);
+      if(d>4&&pinch0>4) dist=Math.max(30,Math.min(220,pinchDist*pinch0/d));
+    }
+  });
+  const lift=e=>{pts.delete(e.pointerId);pinch0=0;};
+  canvas.addEventListener('pointerup',lift);
+  canvas.addEventListener('pointercancel',lift);
   canvas.addEventListener('wheel',e=>{ if(mode!=='free')return; e.preventDefault(); dist=Math.max(30,Math.min(220,dist+e.deltaY*.08)); },{passive:false});
 
   const pauseBtn = container.querySelector('[data-act="pause"]');
+  const freeBtn = container.querySelector('[data-act="free"]');
   overlay.addEventListener('click',()=>{ overlay.style.display='none'; bar.style.display='flex'; mode='play'; });
   pauseBtn.addEventListener('click',()=>{
-    if(mode==='play'){mode='pause';pauseBtn.textContent='▶ Resume';}
-    else {mode='play';pauseBtn.textContent='⏸ Pause';} });
-  container.querySelector('[data-act="restart"]').addEventListener('click',()=>{ u=0; mode='play'; pauseBtn.textContent='⏸ Pause'; });
-  container.querySelector('[data-act="free"]').addEventListener('click',()=>{
-    if(mode==='free'){ mode='play'; pauseBtn.textContent='⏸ Pause'; container.querySelector('[data-act="free"]').textContent='🖱 Free look'; }
-    else { mode='free'; container.querySelector('[data-act="free"]').textContent='🎥 Guided tour'; } });
+    if(mode==='play'){mode='pause';pauseBtn.textContent='Resume';}
+    else {mode='play';pauseBtn.textContent='Pause';} });
+  container.querySelector('[data-act="restart"]').addEventListener('click',()=>{ u=0; mode='play'; pauseBtn.textContent='Pause'; });
+  freeBtn.addEventListener('click',()=>{
+    if(mode==='free'){ mode='play'; pauseBtn.textContent='Pause'; freeBtn.textContent='Free look'; }
+    else { mode='free'; freeBtn.textContent='Guided tour'; } });
 
-  // idle intro camera drift
   let last=performance.now();
   (function loop(now){
     requestAnimationFrame(loop);
@@ -816,13 +912,13 @@ function walkThrough(container, buildFn, path, look, duration){
 }
 
 /* =====================================================================
-   LAZY INIT — only build a scene when it scrolls near the viewport
+   LAZY INIT
    ===================================================================== */
 const builders = { mill:buildMill, crusher:buildCrusher, winder:buildWinder };
 const viewerOpts = {
-  mill:{dist:42,minD:18,maxD:90,targetY:7},
-  crusher:{dist:38,minD:16,maxD:80,targetY:8,phi:1.05},
-  winder:{dist:52,minD:20,maxD:110,targetY:9,theta:.9},
+  mill:{dist:42,minD:18,maxD:110,targetY:7,explodeStart:52},
+  crusher:{dist:38,minD:16,maxD:105,targetY:9,phi:1.05,explodeStart:48},
+  winder:{dist:52,minD:20,maxD:125,targetY:9,theta:.9,explodeStart:62},
 };
 const lazy = new IntersectionObserver(entries=>{
   entries.forEach(en=>{

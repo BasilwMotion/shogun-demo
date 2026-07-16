@@ -1,0 +1,9 @@
+{
+  "name": "shogun-website-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shogun Construction demo website - Specialist Mining Construction & Engineering",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
