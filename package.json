@@ -5,5 +5,8 @@
   "description": "Shogun Construction demo website - Specialist Mining Construction & Engineering",
   "scripts": {
     "dev": "npx serve ."
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
   }
 }
