@@ -75,7 +75,7 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .duo{display:grid;grid-template-columns:1.15fr 1fr;gap:38px;margin-top:40px;align-items:start}
 @media(max-width:940px){.duo{grid-template-columns:1fr}}
 .viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #313d4b 0%, #12181f 75%);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
-.viewer canvas{display:block;width:100%;height:440px;cursor:grab;touch-action:none}
+.viewer canvas{display:block;width:100%;height:auto;aspect-ratio:16/11;max-height:520px;cursor:grab;touch-action:none}
 .viewer canvas:active{cursor:grabbing}
 .viewer .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none;gap:10px}
 .viewer .hud .tag3d{background:var(--red);color:#fff;font-weight:900;font-size:.64rem;letter-spacing:2px;padding:5px 12px;border-radius:3px;white-space:nowrap}
@@ -98,7 +98,7 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 /* walkthrough blocks */
 .walk{margin-top:40px}
 .walkscreen{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#12181f}
-.walkscreen canvas{display:block;width:100%;height:500px;touch-action:none}
+.walkscreen canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;max-height:560px;touch-action:none}
 .walk-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,18,24,.55);backdrop-filter:blur(2px);cursor:pointer;transition:.3s;z-index:5}
 .walk-overlay:hover{background:rgba(13,18,24,.42)}
 .walk-overlay .play{width:90px;height:90px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(176,35,35,.3);transition:.25s}
@@ -129,11 +129,17 @@ footer a:hover{text-decoration:underline}
 
 /* mobile */
 @media(max-width:640px){
-  .viewer canvas{height:340px}
-  .walkscreen canvas{height:380px}
+  .viewer canvas{aspect-ratio:4/3;max-height:420px}
+  .walkscreen canvas{aspect-ratio:16/10;max-height:420px}
   .viewer .hud .hint{display:none}
   .viewer .explode-meter{top:44px;bottom:auto;width:90px}
   .walkbar button{padding:8px 10px;font-size:.66rem}
+  .m-hide{display:none}
+  .brand img{height:42px}
+  .brand .bt b{font-size:.92rem;letter-spacing:1.2px}
+  .brand .bt small{display:none}
+  section{padding:56px 0}
+  .svc-info .photo img{height:170px}
 }
 </style>
 </head>
@@ -143,9 +149,9 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <span class="lbl">Contact us</span>
     <a href="tel:+27561100070">+27 56 110 0070</a>
-    <a href="tel:+27825277602">+27 82 527 7602</a>
+    <a class="m-hide" href="tel:+27825277602">+27 82 527 7602</a>
     <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a>
-    <span class="lbl" style="margin-left:auto">24-hour availability</span>
+    <span class="lbl m-hide" style="margin-left:auto">24-hour availability</span>
   </div>
 </div>
 
@@ -442,7 +448,6 @@ function makeRenderer(canvas){
 }
 
 /* ---------- part registry helpers (for exploded views) ---------- */
-/* Each part: {obj, dir:Vector3 (displacement at full explode), base:Vector3} */
 function makeRegistry(){
   const parts=[], hide=[];
   return {
@@ -492,7 +497,7 @@ function orbitViewer(container, buildFn, opts){
   const lift=e=>{pts.delete(e.pointerId);pinch0=0;};
   canvas.addEventListener('pointerup',lift);
   canvas.addEventListener('pointercancel',lift);
-  canvas.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(o.minD,Math.min(o.maxD,dist+e.deltaY*.045));},{passive:false});
+  canvas.addEventListener('wheel',e=>{e.preventDefault();const dy=Number.isFinite(e.deltaY)?e.deltaY:0;dist=Math.max(o.minD,Math.min(o.maxD,dist+dy*.045));},{passive:false});
 
   /* buttons + meter */
   const autoBtn = container.querySelector('[data-act="auto"]');
@@ -564,7 +569,6 @@ function buildMill(scene){
   const trL=cyl(2.6,2.6,3.4,28,M.steel()); trL.rotation.z=Math.PI/2; trL.position.x=-12.3; rot.add(trL); R.reg(trL,-12,0,0);
   const trR=cyl(2.6,2.6,3.4,28,M.steel()); trR.rotation.z=Math.PI/2; trR.position.x=12.3; rot.add(trR); R.reg(trR,12,0,0);
   const gear=torus(7,.55,M.red()); gear.rotation.y=Math.PI/2; gear.position.x=6.5; rot.add(gear); R.reg(gear,4.5,0,0);
-  // gear teeth ring
   const teeth=new T.Group();
   for(let i=0;i<40;i++){ const a=i/40*Math.PI*2; const t=box(.55,.6,.9,M.red());
     t.position.set(0, Math.cos(a)*7.55, Math.sin(a)*7.55); t.lookAt(0,0,0); teeth.add(t); }
@@ -605,7 +609,6 @@ function buildCrusher(scene){
   for(let i=0;i<3;i++){ const arm=box(15,.9,1.4,M.steel()); arm.rotation.y=i*Math.PI/3; spider.add(arm); }
   const hub=cyl(1.9,1.9,2.4,20,M.dark()); hub.position.y=.4; spider.add(hub);
 
-  // gyrating mantle assembly rises out through the spider when exploded
   const gyr=new T.Group(); gyr.position.y=9.2; g.add(gyr); R.reg(gyr,0,22,0);
   const shaft=cyl(.9,.9,11,18,M.steel()); shaft.position.y=3.2; gyr.add(shaft);
   const mantle=cyl(1.6,4.6,6.4,36,M.red()); mantle.position.y=1.6; gyr.add(mantle);
@@ -637,26 +640,20 @@ function buildWinder(scene){
   const g=new T.Group(); g.position.x=-4; scene.add(g);
 
   const slab=box(20,1,14,M.concrete()); slab.position.set(-6,.5,0); g.add(slab); R.reg(slab,0,-5,0);
-  // drum assembly
   const drum=new T.Group(); drum.position.set(-8,5.4,0); g.add(drum); R.reg(drum,0,7,0);
   const dr=cyl(3.6,3.6,7.5,36,M.shell()); dr.rotation.x=Math.PI/2; dr.rotation.z=Math.PI/2; drum.add(dr);
   const cheekL=cyl(4.6,4.6,.6,36,M.red()); cheekL.rotation.z=Math.PI/2; cheekL.position.x=-4; drum.add(cheekL); R.reg(cheekL,-4,0,0);
   const cheekR=cyl(4.6,4.6,.6,36,M.red()); cheekR.rotation.z=Math.PI/2; cheekR.position.x=4; drum.add(cheekR); R.reg(cheekR,4,0,0);
   for(let i=-3;i<=3;i++){ const coil=torus(3.68,.14,M.dark()); coil.rotation.y=Math.PI/2; coil.position.x=i*.9; drum.add(coil);
     R.reg(coil, i*1.4, 0, 0); }
-  // bearing stands
   const stL=box(2.6,4.8,4.6,M.concrete()); stL.position.set(-12.6,2.4,0); g.add(stL); R.reg(stL,-4,-2,0);
   const stR=box(2.6,4.8,4.6,M.concrete()); stR.position.set(-3.4,2.4,0); g.add(stR); R.reg(stR,4,-2,0);
-  // motor
   const wm=cyl(2.3,2.3,4.6,26,M.motor()); wm.rotation.z=Math.PI/2; wm.position.set(-16.5,5.4,0); g.add(wm); R.reg(wm,-8,2,0);
-  // brake calipers
   const brL=box(1,3.2,1.4,M.dark()); brL.position.set(-12.9,7.6,3.2); g.add(brL); R.reg(brL,-2,3,5);
   const brR=box(1,3.2,1.4,M.dark()); brR.position.set(-3.1,7.6,3.2); g.add(brR); R.reg(brR,2,3,5);
-  // control cab
   const cab=box(4.6,3.4,4,M.dark()); cab.position.set(-6,2.7,-6.6); g.add(cab); R.reg(cab,0,0,-6);
   const win=box(4.2,1.4,.2,M.glass()); win.position.set(-6,3.4,-4.55); g.add(win); R.reg(win,0,0,-6);
 
-  // headframe
   const hf=new T.Group(); hf.position.set(9,0,0); g.add(hf);
   for(const [dx,dz] of [[-2.4,-2.4],[2.4,-2.4],[-2.4,2.4],[2.4,2.4]]){
     const leg=box(.8,22,.8,M.steel()); leg.position.set(dx*.7,11,dz*.7);
@@ -676,7 +673,6 @@ function buildWinder(scene){
   const collar=box(7,1.2,7,M.concrete()); collar.position.set(9,.6,0); g.add(collar); R.reg(collar,3,-4,0);
   const mouth=box(3.6,.7,3.6,M.dark()); mouth.position.set(9,1.3,0); g.add(mouth); R.reg(mouth,3,-2.5,0);
 
-  // ropes + skip (hidden while exploded)
   const ropeMat=new T.LineBasicMaterial({color:0xd9e2ea});
   const rope1=new T.Line(new T.BufferGeometry().setFromPoints([new T.Vector3(-8,8.9,0), new T.Vector3(9,25.2,0)]),ropeMat);
   g.add(rope1); R.hideOnExplode(rope1);
@@ -877,7 +873,7 @@ function walkThrough(container, buildFn, path, look, duration){
   const lift=e=>{pts.delete(e.pointerId);pinch0=0;};
   canvas.addEventListener('pointerup',lift);
   canvas.addEventListener('pointercancel',lift);
-  canvas.addEventListener('wheel',e=>{ if(mode!=='free')return; e.preventDefault(); dist=Math.max(30,Math.min(220,dist+e.deltaY*.08)); },{passive:false});
+  canvas.addEventListener('wheel',e=>{ if(mode!=='free')return; e.preventDefault(); const dy=Number.isFinite(e.deltaY)?e.deltaY:0; dist=Math.max(30,Math.min(220,dist+dy*.08)); },{passive:false});
 
   const pauseBtn = container.querySelector('[data-act="pause"]');
   const freeBtn = container.querySelector('[data-act="free"]');

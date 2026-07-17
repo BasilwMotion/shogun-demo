@@ -74,6 +74,7 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .crow .t b{display:block;font-size:.7rem;letter-spacing:1.8px;text-transform:uppercase;color:var(--grey);font-weight:700}
 .crow .t a,.crow .t span{font-size:.98rem;font-weight:600;color:var(--text)}
 .crow .t a:hover{color:var(--red);text-decoration:underline}
+.crow .t a{word-break:break-all}
 .crow .t small{display:block;color:var(--grey);font-size:.78rem}
 .divide{height:1px;background:var(--line);margin:14px 0}
 .copybtn{margin-left:8px;background:none;border:1px solid var(--line);color:var(--grey);border-radius:3px;font-size:.65rem;padding:3px 8px;cursor:pointer;transition:.2s;vertical-align:middle;text-transform:uppercase;letter-spacing:.5px}
@@ -103,6 +104,17 @@ textarea{min-height:130px;resize:vertical}
 footer{background:var(--dark);padding:40px 0 24px;text-align:center;color:#aeb5bc;font-size:.85rem}
 footer a{color:#fff}
 footer a:hover{text-decoration:underline}
+
+/* mobile */
+@media(max-width:640px){
+  .m-hide{display:none}
+  .brand img{height:42px}
+  .brand .bt b{font-size:.92rem;letter-spacing:1.2px}
+  .brand .bt small{display:none}
+  section{padding:52px 0}
+  .mapwrap iframe{height:320px}
+  .card{padding:22px}
+}
 </style>
 </head>
 <body>
@@ -111,9 +123,9 @@ footer a:hover{text-decoration:underline}
   <div class="wrap">
     <span class="lbl">Contact us</span>
     <a href="tel:+27561100070">+27 56 110 0070</a>
-    <a href="tel:+27825277602">+27 82 527 7602</a>
+    <a class="m-hide" href="tel:+27825277602">+27 82 527 7602</a>
     <a href="mailto:elko@shogunconstruction.co.za">elko@shogunconstruction.co.za</a>
-    <span class="lbl" style="margin-left:auto">24-hour availability</span>
+    <span class="lbl m-hide" style="margin-left:auto">24-hour availability</span>
   </div>
 </div>
 
