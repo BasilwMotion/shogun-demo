@@ -21,7 +21,7 @@ addEventListener('error',function(e){
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.65;overflow-x:hidden}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:#fff;color:var(--text);line-height:1.65}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
@@ -39,18 +39,18 @@ section{padding:78px 0;position:relative}
 .topbar span.lbl{color:#8c939b;letter-spacing:1.5px;font-weight:700;font-size:.7rem;text-transform:uppercase}
 .topbar a:hover{color:#fff;text-decoration:underline}
 nav.main{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(28,31,36,.06)}
-nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
-.brand{display:flex;align-items:center;gap:14px}
+nav.main .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:10px}
+.brand{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
 .brand img{height:52px;width:auto}
-.brand .bt{line-height:1.15}
-.brand .bt b{display:block;font-size:1.15rem;letter-spacing:2px;color:var(--dark);font-weight:900}
-.brand .bt small{display:block;font-size:.6rem;letter-spacing:1.4px;color:var(--grey);font-weight:600;text-transform:uppercase}
+.brand .bt{line-height:1.15;min-width:0}
+.brand .bt b{display:block;font-size:1.15rem;letter-spacing:2px;color:var(--dark);font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .bt small{display:block;font-size:.6rem;letter-spacing:1.4px;color:var(--grey);font-weight:600;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .navlinks{display:flex;gap:4px;align-items:center}
 .navlinks a{padding:9px 15px;border-radius:4px;font-size:.88rem;font-weight:600;color:var(--text);transition:.2s;text-transform:uppercase;letter-spacing:.4px}
 .navlinks a:hover,.navlinks a.active{color:var(--red)}
 .navlinks a.cta{background:var(--red);color:#fff;margin-left:10px}
 .navlinks a.cta:hover{background:var(--red2);color:#fff}
-.burger{display:none;background:none;border:1px solid var(--line);color:var(--dark);border-radius:4px;padding:8px 12px;font-size:.8rem;cursor:pointer;font-weight:800;letter-spacing:1px}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--dark);border-radius:4px;padding:8px 12px;font-size:.8rem;cursor:pointer;font-weight:800;letter-spacing:1px;flex-shrink:0}
 @media(max-width:960px){
   .burger{display:block}
   .navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:#fff;flex-direction:column;padding:14px;border-bottom:1px solid var(--line)}
@@ -72,9 +72,9 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 /* service blocks */
 .svc-block{border-bottom:1px solid var(--line)}
 .svc-block:nth-of-type(even){background:var(--light)}
-.duo{display:grid;grid-template-columns:1.15fr 1fr;gap:38px;margin-top:40px;align-items:start}
+.duo{display:grid;grid-template-columns:1.15fr 1fr;gap:38px;margin-top:40px;align-items:start;max-width:100%}
 @media(max-width:940px){.duo{grid-template-columns:1fr}}
-.viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #313d4b 0%, #12181f 75%);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow)}
+.viewer{position:relative;background:radial-gradient(ellipse at 50% 40%, #313d4b 0%, #12181f 75%);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow);max-width:100%}
 .viewer canvas{display:block;width:100%;height:auto;aspect-ratio:16/11;max-height:520px;cursor:grab;touch-action:none}
 .viewer canvas:active{cursor:grabbing}
 .viewer .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none;gap:10px}
@@ -96,8 +96,8 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .chip:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
 
 /* walkthrough blocks */
-.walk{margin-top:40px}
-.walkscreen{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#12181f}
+.walk{margin-top:40px;max-width:100%}
+.walkscreen{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#12181f;max-width:100%}
 .walkscreen canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;max-height:560px;touch-action:none}
 .walk-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(13,18,24,.55);backdrop-filter:blur(2px);cursor:pointer;transition:.3s;z-index:5}
 .walk-overlay:hover{background:rgba(13,18,24,.42)}
@@ -108,7 +108,7 @@ nav.main .wrap{display:flex;align-items:center;justify-content:space-between;hei
 .walkbar{position:absolute;left:14px;right:14px;bottom:12px;display:flex;gap:10px;align-items:center;z-index:4}
 .walkbar button{background:rgba(13,18,24,.78);border:1px solid #3c4a58;color:#e6ecf2;font-size:.72rem;font-weight:700;padding:8px 14px;border-radius:3px;cursor:pointer;letter-spacing:.8px;text-transform:uppercase}
 .walkbar button:hover{background:var(--red);color:#fff;border-color:var(--red)}
-.walkbar .prog{flex:1;height:6px;background:rgba(13,18,24,.8);border-radius:99px;overflow:hidden;border:1px solid #3c4a58}
+.walkbar .prog{flex:1;height:6px;background:rgba(13,18,24,.8);border-radius:99px;overflow:hidden;border:1px solid #3c4a58;min-width:40px}
 .walkbar .prog .p{height:100%;width:0;background:var(--red)}
 .walk-txt{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:32px;box-shadow:var(--shadow)}
 .svc-block:nth-of-type(odd) .walk-txt{background:var(--light)}
@@ -127,7 +127,10 @@ footer{background:var(--dark);border-top:1px solid #33383f;padding:40px 0 24px;t
 footer a{color:#fff}
 footer a:hover{text-decoration:underline}
 
-/* mobile */
+/* ===== hard mobile fixes: no sideways overflow (white bar), tidy header ===== */
+html,body{overflow-x:hidden}
+@supports (overflow-x:clip){html,body{overflow-x:clip}}
+html{background:var(--dark)}
 @media(max-width:640px){
   .viewer canvas{aspect-ratio:4/3;max-height:420px}
   .walkscreen canvas{aspect-ratio:16/10;max-height:420px}
@@ -135,11 +138,15 @@ footer a:hover{text-decoration:underline}
   .viewer .explode-meter{top:44px;bottom:auto;width:90px}
   .walkbar button{padding:8px 10px;font-size:.66rem}
   .m-hide{display:none}
-  .brand img{height:42px}
-  .brand .bt b{font-size:.92rem;letter-spacing:1.2px}
+  .brand img{height:40px}
+  .brand .bt b{font-size:.9rem;letter-spacing:1px}
   .brand .bt small{display:none}
   section{padding:56px 0}
   .svc-info .photo img{height:170px}
+  .topbar{font-size:.72rem}
+  .topbar .wrap{gap:12px}
+  .wrap{padding:0 18px}
+  .jump a{font-size:.7rem;padding:8px 12px}
 }
 </style>
 </head>
@@ -558,7 +565,6 @@ function buildMill(scene){
   const R = makeRegistry();
   const g = new T.Group(); scene.add(g);
 
-  // rotating assembly (core shell stays; parts explode along the axis)
   const rot = new T.Group(); rot.position.y=7; g.add(rot);
   R.reg(rot, 0, 3, 0);
   const shell = cyl(6,6,16,36,M.shell()); shell.rotation.z=Math.PI/2; rot.add(shell);
@@ -574,17 +580,14 @@ function buildMill(scene){
     t.position.set(0, Math.cos(a)*7.55, Math.sin(a)*7.55); t.lookAt(0,0,0); teeth.add(t); }
   teeth.position.x=6.5; rot.add(teeth); R.reg(teeth,4.5,0,0);
 
-  // static: bearing pedestals + caps
   [[-12.3,-1],[12.3,1]].forEach(([x,s])=>{
     const ped=box(4.2,5.4,6.4,M.concrete()); ped.position.set(x,2.7,0); g.add(ped); R.reg(ped, s*5, -4, 0);
     const cap=cyl(3.1,3.1,4,28,M.dark()); cap.rotation.z=Math.PI/2; cap.position.set(x,7,0); g.add(cap); R.reg(cap, s*8, 6, 0);
   });
-  // pinion + motor
   const pin=cyl(1.5,1.5,3,20,M.red()); pin.rotation.z=Math.PI/2; pin.position.set(6.5,1.9,9.1); g.add(pin); R.reg(pin,0,2,7);
   const mBase=box(9,1,4,M.concrete()); mBase.position.set(10.5,.5,9.1); g.add(mBase); R.reg(mBase,1,-3,8);
   const motor=cyl(1.7,1.7,5,24,M.motor()); motor.rotation.z=Math.PI/2; motor.position.set(11.5,2.1,9.1); g.add(motor); R.reg(motor,3,1,11);
   const mbox=box(1.6,1.4,1.6,M.dark()); mbox.position.set(11.5,3.6,9.1); g.add(mbox); R.reg(mbox,3,4,11);
-  // feed chute
   const chute=box(3.4,3,2.6,M.rust()); chute.position.set(-15.2,8.6,0); chute.rotation.z=.5; g.add(chute); R.reg(chute,-7,5,0);
   const feedLeg=box(.8,7,.8,M.dark()); feedLeg.position.set(-15.8,3.5,0); g.add(feedLeg); R.reg(feedLeg,-7,-2,0);
 

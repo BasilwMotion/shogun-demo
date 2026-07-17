@@ -8,7 +8,7 @@ Demo website for **Shogun Construction** — Specialist Mining Construction & En
 - `services.html` — Services & Products: interactive 3D models (mills, crushers, winders) that disassemble as you zoom out and reassemble as you zoom in (mouse wheel, pinch on touch, or the Take apart button), plus guided 3D walk-throughs of a cement plant and a concentrator plant
 - `contact.html` — All phone numbers, email addresses, contact form and map
 
-Static site — no build step. 3D powered by Three.js from CDN. Photos and logos are loaded from shogun.co.za.
+Static site — no build step. 3D powered by Three.js from CDN. Photos and logos are loaded from shogun.co.za. Fully responsive: no horizontal scroll on phones, header text never overlaps the menu button.
 
 ## Run locally
 
